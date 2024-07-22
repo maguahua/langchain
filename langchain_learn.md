@@ -22,8 +22,6 @@
     + [<font color=#70AD47>OpenAI</font>](#-font-color--70ad47-openai--font-)
     + [<font color=#70AD47>灵积服务模型</font>](#-font-color--70ad47---------font-)
 
-<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
-
 
 ## <font color=#ED7D31>LangChain基本概念</font> 
 
