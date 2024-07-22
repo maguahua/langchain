@@ -1,6 +1,6 @@
 # LangChain指南
 
-[TOC]
+[toc]
 
 ## <font color=#ED7D31>LangChain基本概念</font> 
 
