@@ -12,7 +12,7 @@
 - langchain-core：定义一些核心接口（轻量级）
 - langchain-community：第三方集成。一些比较流行的包被提取出来
 	- langchain-openai
-    - langchain-anthropic
+	- langchain-anthropic
 - langgraph：流程/状态控制（可单独工作）
 - langserve：实现以REST API形式部署LangChain runnables和链
 - langsmith：监控和评估LLM App（可单独工作）
