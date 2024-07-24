@@ -1,31 +1,5 @@
 # LangChain指南
 
-- [LangChain指南](#langchain--)
-  * [<font color=#ED7D31>LangChain基本概念</font>](#-font-color--ed7d31-langchain------font-)
-    + [<font color=#70AD47>架构（包）</font>](#-font-color--70ad47--------font-)
-    + [<font color=#70AD47>关于LangChain Expression Language(LCEL)</font>](#-font-color--70ad47---langchain-expression-language-lcel---font-)
-  * [<font color=#ED7D31>LangChain组件</font>](#-font-color--ed7d31-langchain----font-)
-    + [<font color=#70AD47>LLMs 大语言模型</font>](#-font-color--70ad47-llms--------font-)
-    + [<font color=#70AD47>Chat models 聊天模型</font>](#-font-color--70ad47-chat-models-------font-)
-    + [<font color=#70AD47>Messages 消息</font>](#-font-color--70ad47-messages-----font-)
-    + [<font color=#70AD47>Prompt templates 提示模板</font>](#-font-color--70ad47-prompt-templates-------font-)
-      - [PromptTemplates](#prompttemplates)
-      - [ChatPromptTemplates](#chatprompttemplates)
-      - [MessagesPlaceholder](#messagesplaceholder)
-    + [<font color=#70AD47>Example selectors 模板选择器</font>](#-font-color--70ad47-example-selectors--------font-)
-    + [<font color=#70AD47>Output parsers 输出解析器</font>](#-font-color--70ad47-output-parsers--------font-)
-    + [<font color=#70AD47>Chat history 聊天历史</font>](#-font-color--70ad47-chat-history-------font-)
-    + [<font color=#70AD47>Document 文件</font>](#-font-color--70ad47-document-----font-)
-    + [<font color=#70AD47>Document loaders 文件加载器</font>](#-font-color--70ad47-document-loaders--------font-)
-    + [<font color=#70AD47>Text splitters 文本拆分器</font>](#-font-color--70ad47-text-splitters--------font-)
-    + [<font color=#70AD47>Embedding models 嵌入模型（阿里云文档）</font>](#-font-color--70ad47-embedding-models--------------font-)
-    + [<font color=#70AD47>Vector stores 向量存储</font>](#-font-color--70ad47-vector-stores-------font-)
-  * [<font color=#ED7D31>准备工作</font>](#-font-color--ed7d31-------font-)
-    + [<font color=#70AD47>通义</font>](#-font-color--70ad47-----font-)
-    + [<font color=#70AD47>OpenAI</font>](#-font-color--70ad47-openai--font-)
-    + [<font color=#70AD47>灵积服务模型</font>](#-font-color--70ad47---------font-)
-
-
 
 ## <font color=#ED7D31>LangChain基本概念</font> 
 
