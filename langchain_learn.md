@@ -407,7 +407,7 @@ print(texts[1])
 
 下图是基于中文突发事件语料库（CEC Corpus）演示关于突发时间新闻报道的知识问答
 
-![专属知识等问答服务](https://github.com/maguahua/langchain/blob/master/img/embedding%E6%B5%81%E7%A8%8B.png)
+![专属知识等问答服务](https://github.com/maguahua/langchain/blob/master/img/%E4%B8%93%E5%B1%9E%E7%9F%A5%E8%AF%86%E7%AD%89%E9%97%AE%E7%AD%94%E6%9C%8D%E5%8A%A1.png)
 
 主要分为三个阶段
 
