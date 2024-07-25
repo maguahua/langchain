@@ -1,29 +1,31 @@
 # LangChain指南
-- [<font color=#ED7D31>LangChain基本概念</font>](#LangChain基本概念)
-  - [<font color=#70AD47>架构（包）</font>](#架构（包）)
-  - [<font color=#70AD47>关于LangChain Expression Language(LCEL)</font>](#关于LangChain Expression Language(LCEL))
-- [<font color=#ED7D31>LangChain组件</font>](#LangChain组件)
-  - [<font color=#70AD47>LLMs 大语言模型</font>](#LLMs 大语言模型)
-  - [<font color=#70AD47>Chat models 聊天模型</font>](#Chat models 聊天模型)
-  - [<font color=#70AD47>Messages 消息</font>](#Messages 消息)
-  - [<font color=#70AD47>Prompt templates 提示模板</font>](#Prompt templates 提示模板)
+
+- [LangChain基本概念](#LangChain基本概念)
+  - [架构（包）](#架构（包）)
+  - [关于LangChain Expression Language(LCEL)](#关于LangChain Expression Language(LCEL))
+- [LangChain组件](#LangChain组件)
+  - [LLMs 大语言模型](#LLMs 大语言模型)
+  - [Chat models 聊天模型](#Chat models 聊天模型)
+  - [Messages 消息](#Messages 消息)
+  - [Prompt templates 提示模板](#Prompt templates 提示模板)
     - [PromptTemplates](#PromptTemplates)
     - [ChatPromptTemplates](#ChatPromptTemplates)
     - [MessagesPlaceholder](#MessagesPlaceholder)
-  - [<font color=#70AD47>Example selectors 模板选择器</font>](#Example selectors 模板选择器)
-  - [<font color=#70AD47>Output parsers 输出解析器</font>](#Output parsers 输出解析器)
-  - [<font color=#70AD47>Chat history 聊天历史</font>](#Chat history 聊天历史)
-  - [<font color=#70AD47>Document 文件</font>](#Document 文件)
-  - [<font color=#70AD47>Document loaders 文件加载器</font>](#Document loaders 文件加载器)
-  - [<font color=#70AD47>Text splitters 文本拆分器</font>](#Text splitters 文本拆分器)
-  - [<font color=#70AD47>Embedding models 嵌入模型（阿里云文档）</font>](#Embedding models 嵌入模型（阿里云文档）</font>)
-  - [<font color=#70AD47>Vector stores 向量存储</font>](#Vector stores 向量存储)
-- [<font color=#ED7D31>准备工作</font>](#准备工作)
-  - [<font color=#70AD47>通义</font>](#通义)
-  - [<font color=#70AD47>OpenAI</font>](#OpenAI)
-  - [<font color=#70AD47>灵积服务模型</font>](#灵积服务模型)
+  - [Example selectors 模板选择器](#Example selectors 模板选择器)
+  - [Output parsers 输出解析器](#Output parsers 输出解析器)
+  - [Chat history 聊天历史](#Chat history 聊天历史)
+  - [Document 文件](#Document 文件)
+  - [Document loaders 文件加载器](#Document loaders 文件加载器)
+  - [Text splitters 文本拆分器](#Text splitters 文本拆分器)
+  - [Embedding models 嵌入模型（阿里云文档）](#Embedding models 嵌入模型（阿里云文档）)
+  - [Vector stores 向量存储](#Vector stores 向量存储)
+- [准备工作](#准备工作)
+  - [通义](#通义)
+  - [OpenAI](#OpenAI)
+  - [灵积服务模型](#灵积服务模型)
 
 ## <font color=#ED7D31>LangChain基本概念</font> 
+
 用于开发由LLM驱动的应用程序框架，简化了LLM应用程序生命周期的每个阶段
 
 ### <font color=#70AD47>架构（包）</font> 
@@ -366,7 +368,7 @@ data = loader.load()
 
 ### <font color=#70AD47>Text splitters 文本拆分器</font>
 
-[How-to guides: Text splitters](https://python.langchain.com/v0.2/docs/how_to/#text-splitters)
+[How-to guides: Text splitters]([How-to guides | 🦜️🔗 LangChain](https://python.langchain.com/v0.2/docs/how_to/#text-splitters))
 
 原因：发送给模型的文本有字符限制（超过最大token）
 
@@ -409,32 +411,58 @@ print(texts[1])
 >
 > `page_content`='有第三方机构能够直接掌握用户完整的身份授权记录，这保护了用户的身份隐私，但是也导致了溯源结果没有第三方机构背书，因此需要新的技术方法来保证溯源结果可信且仅可以被具有特定权限的实体访问。此外，由于分布式'
 
+---
+
 ### <font color=#70AD47>Embedding models 嵌入模型（阿里云文档）</font>
 
 [基于向量检索服务与TextEmbedding实现语义搜索](https://help.aliyun.com/zh/dashscope/implementation-of-semantic-search-based-on-vector-retrieval-service-and-textembedding?spm=a2c4g.11186623.0.0.50101d61gyL4ye)
 
-简单来说，Embedding是一个多维向量的表示数组，通常由一系列数字组成。Embedding可以用来表示任何数据，例如文本、音频、图片、视频等等，通过Embedding我们可以编码各种类型的非结构化数据，转化为具有语义信息的多维向量，并在这些向量上进行各种操作，例如相似度计算、聚类、分类和推荐等
+以DashScope上[通用文本向量](https://help.aliyun.com/zh/dashscope/developer-reference/text-embedding-quick-start)模型为例，通过输入一段文本，[通用文本向量](https://help.aliyun.com/zh/dashscope/developer-reference/text-embedding-quick-start)模型会将这段文本变成一个向量，将**文本变成向量**的过程叫 `Embedding`
 
 ![embedding流程](img/embedding流程.png)
 
-- Embedding：通过DashScope提供的通用文本向量模型，对语料库中所有标题生成的对应的embedding向量
-- 构建索引服务和查询
+- **Embedding**：通过DashScope提供的通用文本向量模型，对语料库中所有标题生成的对应的embedding向量
+- **构建索引服务和查询**
   - 通过DashVector向量检索服务对生成的embedding向量构建索引
   - 将查询文本embedding向量作为输入，通过DashVector搜索相似的标题
 
+```python
+from dashscope import TextEmbedding
+
+# 需要获取获取DASHSCOPE_API_KEY
+def generate_embeddings(text):
+    rsp = TextEmbedding.call(model=TextEmbedding.Models.text_embedding_v1, input=text)
+
+    embeddings = [record['embedding'] for record in rsp.output['embeddings']]
+    return embeddings if isinstance(text, list) else embeddings[0]
+
+# 把hello字符串换为维度为1536的向量（embedding向量维数为1536）
+print(len(generate_embeddings('hello')))
+```
+
+### <font color=#70AD47>通过DashVector构建检索：向量入库</font>
+
+DashVector向量检索服务上的数据以集合（Collection）为单位存储，写入向量前应先创建一个集合来管理数据集，创建数据集的时候需要指定向量为度，因为embeddings的产生用的模型是`model=TextEmbedding.Models.text_embedding_v1`，所以维度为统一均为1536
+
+
+
 ### <font color=#70AD47>Vector stores 向量存储</font>
 
-[DashVector x 通义千问大模型：打造基于专属知识的问答服务](https://help.aliyun.com/zh/dashscope/dashvector-x-tongyi-qianyi-big-model-creating-question-answering-service-based-on-exclusive-knowledge?spm=a2c4g.11186623.0.0.8c541d61Z32CIs)
+[DashVector x 通义千问大模型：打造基于专属知识的问答服务](img)
 
 下图是基于中文突发事件语料库（CEC Corpus）演示关于突发时间新闻报道的知识问答
 
-![专属知识等问答服务](img/专属知识等问答服务.png)
+![embedding流程](img/专属知识等问答服务.png)
 
 主要分为三个阶段
 
 1. **本地知识库的向量化。**通过文本向量模型将其转化为高质量低纬度的向量数据，再写入DashVector向量检索服务。（数据向量化使用DashScope上的EmbeddingAPI实现）
 2. **相关知识点的提取。**将提问文本向量化后，通过DashVector提取相关知识点的原文
 3. **构造Prompt进行提问。**将相关知识点作为”限定上下文+提问“一起作为prompt询问通义千问
+
+### <font color=#70AD47>Retrievers 检索器</font>
+
+
 
 ## <font color=#ED7D31>准备工作</font> 
 
@@ -445,6 +473,7 @@ pip3 install langchain #安装langchain环境
 pip3 install langchain-community #安装第三方集成,就是各种大语言模型
 pip3 install python-dotenv #加载工具
 pip3 install dashscope #灵积模型服务
+pip3 install dashvector #灵积向量检索服务
 ```
 
 ### <font color=#70AD47>OpenAI</font> 
@@ -480,13 +509,41 @@ pip3 install langchain-openai
    DASHSCOPE_API_KEY = os.environ["DASHSCOPE_API_KEY"]
    ```
 
-   
+4. 向量检索服务
 
-   
+   [向量检索服务DashVector (aliyun.com)](https://dashvector.console.aliyun.com/overview)
 
-   
+   1. 创建API-KEY
 
-   
+      [DashVector-API-KEY创建](https://dashvector.console.aliyun.com/api-key)
+
+      ![DashVector_API_KEY](img\DashVector_API_KEY.PNG)
+
+      > [!NOTE]
+      >
+      > DashVector-API-KEY和DASHSCOPE_API_KEY不同
+
+   2. 创建Cluster（有免费版）
+
+      [Cluster创建](https://common-buy.aliyun.com/?commodityCode=dashvector_vector_public_cn&regionId=cn-beijing&request={"cluster_type":"storage_type","replica":"1"})
+
+      ![创建Cluster](img\创建Cluster.PNG)
+
+   3. 创建Collection
+
+      [CollectionList](https://dashvector.console.aliyun.com/cn-beijing/cluster/zydCluster/collectionList)
+
+      ![创建Collection](img\创建Collection.PNG)
+
+   4. 新增向量数据
+
+   5. 进行向量查询
+
+
+
+
+
+
 
 
 
