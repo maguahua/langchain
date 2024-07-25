@@ -394,7 +394,7 @@ print(texts[1])
 
 简单来说，Embedding是一个多维向量的表示数组，通常由一系列数字组成。Embedding可以用来表示任何数据，例如文本、音频、图片、视频等等，通过Embedding我们可以编码各种类型的非结构化数据，转化为具有语义信息的多维向量，并在这些向量上进行各种操作，例如相似度计算、聚类、分类和推荐等
 
-![embedding流程](pictures\embedding流程.png)
+![embedding流程](https://github.com/maguahua/langchain/blob/master/img/embedding%E6%B5%81%E7%A8%8B.png)
 
 - Embedding：通过DashScope提供的通用文本向量模型，对语料库中所有标题生成的对应的embedding向量
 - 构建索引服务和查询
@@ -407,7 +407,7 @@ print(texts[1])
 
 下图是基于中文突发事件语料库（CEC Corpus）演示关于突发时间新闻报道的知识问答
 
-![专属知识等问答服务](pictures\专属知识等问答服务.png)
+![专属知识等问答服务](https://github.com/maguahua/langchain/blob/master/img/embedding%E6%B5%81%E7%A8%8B.png)
 
 主要分为三个阶段
 
