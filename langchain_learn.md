@@ -4,7 +4,7 @@
   - [架构（包）](#架构（包）)
   - [关于LangChain Expression Language(LCEL)](#关于LangChain Expression Language(LCEL))
 - [LangChain组件](#LangChain组件)
-  - [LLMs 大语言模型](# LLMs 大语言模型)
+  - [LLMs 大语言模型](#LLMs 大语言模型)
   - [Chat models 聊天模型](#Chat models 聊天模型)
   - [Messages 消息](#Messages 消息)
   - [Prompt templates 提示模板](#Prompt templates 提示模板)
@@ -368,7 +368,7 @@ data = loader.load()
 
 ### <font color=#70AD47>Text splitters 文本拆分器</font>
 
-[How-to guides: Text splitters]([How-to guides | 🦜️🔗 LangChain](https://python.langchain.com/v0.2/docs/how_to/#text-splitters))
+[How-to guides: Text splitters](https://python.langchain.com/v0.2/docs/how_to/#text-splitters)
 
 原因：发送给模型的文本有字符限制（超过最大token）
 
@@ -417,7 +417,7 @@ print(texts[1])
 
 [基于向量检索服务与TextEmbedding实现语义搜索](https://help.aliyun.com/zh/dashscope/implementation-of-semantic-search-based-on-vector-retrieval-service-and-textembedding?spm=a2c4g.11186623.0.0.50101d61gyL4ye)
 
-以DashScope上[通用文本向量](https://help.aliyun.com/zh/dashscope/developer-reference/text-embedding-quick-start)模型为例，通过输入一段文本，[通用文本向量](https://help.aliyun.com/zh/dashscope/developer-reference/text-embedding-quick-start)模型会将这段文本变成一个向量，将**文本变成向量**的过程叫 `Embedding`
+以DashScope上[通用文本向量](https://help.aliyun.com/zh/dashscope/developer-reference/text-embedding-quick-start)模型为例，通过输入一段文本，通用文本向量模型会将这段文本变成一个向量，将**文本变成向量**的过程叫 `Embedding`
 
 ![embedding流程](img/embedding流程.png)
 
@@ -517,7 +517,7 @@ pip3 install langchain-openai
 
       [DashVector-API-KEY创建](https://dashvector.console.aliyun.com/api-key)
 
-      ![DashVector_API_KEY](img\DashVector_API_KEY.PNG)
+      ![DashVector_API_KEY](img/DashVector_API_KEY.PNG)
 
       > [!NOTE]
       >
@@ -527,13 +527,13 @@ pip3 install langchain-openai
 
       [Cluster创建](https://common-buy.aliyun.com/?commodityCode=dashvector_vector_public_cn&regionId=cn-beijing&request={"cluster_type":"storage_type","replica":"1"})
 
-      ![创建Cluster](img\创建Cluster.PNG)
+      ![创建Cluster](img/创建Cluster.PNG)
 
    3. 创建Collection
 
       [CollectionList](https://dashvector.console.aliyun.com/cn-beijing/cluster/zydCluster/collectionList)
 
-      ![创建Collection](img\创建Collection.PNG)
+      ![创建Collection](img/创建Collection.PNG)
 
    4. 新增向量数据
 
