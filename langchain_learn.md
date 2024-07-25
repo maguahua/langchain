@@ -1,5 +1,27 @@
 # LangChain指南
-
+- [LangChain基本概念](https://github.com/maguahua/langchain/blob/master/langchain_learn.md#langchain%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5)
+    - [架构（包）](https://github.com/maguahua/langchain/blob/master/langchain_learn.md#%E6%9E%B6%E6%9E%84%E5%8C%85)
+    - [关于LangChain Expression Language(LCEL)](https://github.com/maguahua/langchain/blob/master/langchain_learn.md#%E5%85%B3%E4%BA%8Elangchain-expression-languagelcel)
+- [LangChain组件](https://github.com/maguahua/langchain/blob/master/langchain_learn.md#langchain%E7%BB%84%E4%BB%B6)
+    - [LLMs 大语言模型](https://github.com/maguahua/langchain/blob/master/langchain_learn.md#llms-%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B)
+    - [Chat models 聊天模型](https://github.com/maguahua/langchain/blob/master/langchain_learn.md#chat-models-%E8%81%8A%E5%A4%A9%E6%A8%A1%E5%9E%8B)
+    - [Messages](https://github.com/maguahua/langchain/blob/master/langchain_learn.md#messages-%E6%B6%88%E6%81%AF)
+    - [Prompt templates 提示模板](https://github.com/maguahua/langchain/blob/master/langchain_learn.md#prompt-templates-%E6%8F%90%E7%A4%BA%E6%A8%A1%E6%9D%BF)
+        - [PromptTemplates](https://github.com/maguahua/langchain/blob/master/langchain_learn.md#prompttemplates)
+        - [ChatPromptTemplates](https://github.com/maguahua/langchain/blob/master/langchain_learn.md#chatprompttemplates)
+        - [MessagesPlaceholder](https://github.com/maguahua/langchain/blob/master/langchain_learn.md#messagesplaceholder)
+    - [Example selectors 模板选择器](https://github.com/maguahua/langchain/blob/master/langchain_learn.md#example-selectors-%E6%A8%A1%E6%9D%BF%E9%80%89%E6%8B%A9%E5%99%A8)
+    - [Output parsers 输出解析器](https://github.com/maguahua/langchain/blob/master/langchain_learn.md#output-parsers-%E8%BE%93%E5%87%BA%E8%A7%A3%E6%9E%90%E5%99%A8)
+    - [Chat history 聊天历史](https://github.com/maguahua/langchain/blob/master/langchain_learn.md#chat-history-%E8%81%8A%E5%A4%A9%E5%8E%86%E5%8F%B2)
+    - [Document 文件](https://github.com/maguahua/langchain/blob/master/langchain_learn.md#document-%E6%96%87%E4%BB%B6)
+    - [Document loaders 文件加载器](https://github.com/maguahua/langchain/blob/master/langchain_learn.md#document-loaders-%E6%96%87%E4%BB%B6%E5%8A%A0%E8%BD%BD%E5%99%A8)
+    - [Text splitters 文本拆分器](https://github.com/maguahua/langchain/blob/master/langchain_learn.md#text-splitters-%E6%96%87%E6%9C%AC%E6%8B%86%E5%88%86%E5%99%A8)
+    - [Embedding models 嵌入模型（阿里云文档）](https://github.com/maguahua/langchain/blob/master/langchain_learn.md#embedding-models-%E5%B5%8C%E5%85%A5%E6%A8%A1%E5%9E%8B%E9%98%BF%E9%87%8C%E4%BA%91%E6%96%87%E6%A1%A3)
+    - [Vector stores 向量存储](https://github.com/maguahua/langchain/blob/master/langchain_learn.md#vector-stores-%E5%90%91%E9%87%8F%E5%AD%98%E5%82%A8)
+- [准备工作](https://github.com/maguahua/langchain/blob/master/langchain_learn.md#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C)
+    - [通义](https://github.com/maguahua/langchain/blob/master/langchain_learn.md#%E9%80%9A%E4%B9%89)
+    - [OpenAI](https://github.com/maguahua/langchain/blob/master/langchain_learn.md#openai)
+    - [灵机服务模型](https://github.com/maguahua/langchain/blob/master/langchain_learn.md#%E7%81%B5%E7%A7%AF%E6%9C%8D%E5%8A%A1%E6%A8%A1%E5%9E%8B)
 
 ## <font color=#ED7D31>LangChain基本概念</font> 
 
