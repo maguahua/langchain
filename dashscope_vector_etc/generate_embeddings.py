@@ -1,8 +1,8 @@
 import json
 
-import dashvector
-
-
+# 准备数据
+# 输入：path，文件路径，size，每个batch的大小
+# 输出：每次迭代返回一个包含指定大小文档的列表
 def prepare_data(path, size):
     with open(path, 'r', encoding='utf-8') as f:
         batch_docs = []
@@ -19,6 +19,9 @@ def prepare_data(path, size):
 from dashscope import TextEmbedding
 
 
+# embedding过程
+# 输入：文本字符串或字符串列表
+# 输出：单个文本或文本列表对应的向量
 def generate_embeddings(text):
     rsp = TextEmbedding.call(model=TextEmbedding.Models.text_embedding_v1, input=text)
 
@@ -29,6 +32,7 @@ def generate_embeddings(text):
 from dashvector import Client, Doc
 
 # 初始化 DashVector client
+# DashVector API KEY和Cluster的endpoint
 client = Client(
     api_key='sk-QC92s09WrepVav5GjI20PyeB6vJ2CE44D34634A6211EFA11DB2CF21235769',
     endpoint='vrs-cn-fou3ucvg500011.dashvector.cn-beijing.aliyuncs.com'
@@ -63,7 +67,7 @@ for docs in list(prepare_data('QBQTC-main/dataset/train.json', batch_size)):
         ]
     )
     print("Response from insert:", rsp)
-    # assert rsp
+    assert rsp
 
 # 基于向量检索的语义搜索
 rsp = collection.query(generate_embeddings('应届生 招聘'), output_fields=['title'])
