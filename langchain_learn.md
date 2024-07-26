@@ -1,44 +1,49 @@
 # LangChain指南
 
-- [LangChain基本概念](#LangChain基本概念)
-  - [架构（包）](#架构（包）)
-  - [关于LangChain Expression Language(LCEL)](#关于LangChain Expression Language(LCEL))
-- [LangChain组件](#LangChain组件)
-  - [LLMs 大语言模型](#LLMs 大语言模型)
-  - [Chat models 聊天模型](#Chat models 聊天模型)
-  - [Messages 消息](#Messages 消息)
-  - [Prompt templates 提示模板](#Prompt templates 提示模板)
-    - [PromptTemplates](#PromptTemplates)
-    - [ChatPromptTemplates](#ChatPromptTemplates)
-    - [MessagesPlaceholder](#MessagesPlaceholder)
-  - [Example selectors 模板选择器](#Example selectors 模板选择器)
-  - [Output parsers 输出解析器](#Output parsers 输出解析器)
-  - [Chat history 聊天历史](#Chat history 聊天历史)
-  - [Document 文件](#Document 文件)
-  - [Document loaders 文件加载器](#Document loaders 文件加载器)
-  - [Text splitters 文本拆分器](#Text splitters 文本拆分器)
-  - [Embedding models 嵌入模型（阿里云文档）](#Embedding models 嵌入模型（阿里云文档）)
-  - [Vector stores 向量存储](#Vector stores 向量存储)
-- [准备工作](#准备工作)
-  - [通义](#通义)
-  - [OpenAI](#OpenAI)
-  - [灵积服务模型](#灵积服务模型)
+- [LangChain指南](#langchain指南)
+  - [LangChain基本概念](#langchain基本概念)
+    - [架构（包）](#架构包)
+    - [关于LangChain Expression Language(LCEL)](#关于langchain-expression-languagelcel)
+  - [LangChain组件](#langchain组件)
+    - [LLMs 大语言模型](#llms-大语言模型)
+    - [Chat models 聊天模型](#chat-models-聊天模型)
+    - [Messages 消息](#messages-消息)
+    - [Prompt templates 提示模板](#prompt-templates-提示模板)
+      - [PromptTemplates](#prompttemplates)
+      - [ChatPromptTemplates](#chatprompttemplates)
+      - [MessagesPlaceholder](#messagesplaceholder)
+    - [Example selectors 模板选择器](#example-selectors-模板选择器)
+    - [Output parsers 输出解析器](#output-parsers-输出解析器)
+    - [Chat history 聊天历史](#chat-history-聊天历史)
+    - [Document 文件](#document-文件)
+    - [Document loaders 文件加载器](#document-loaders-文件加载器)
+    - [Text splitters 文本拆分器](#text-splitters-文本拆分器)
+    - [Embedding models 嵌入模型（阿里云文档）](#embedding-models-嵌入模型阿里云文档)
+    - [通过DashVector构建检索：向量入库](#通过dashvector构建检索向量入库)
+    - [Vector stores 向量存储](#vector-stores-向量存储)
+    - [Retrievers 检索器](#retrievers-检索器)
+  - [准备工作](#准备工作)
+    - [通义](#通义)
+    - [OpenAI](#openai)
+    - [灵积服务模型](#灵积服务模型)
 
-## <font color=#ED7D31>LangChain基本概念</font> 
+
+
+## LangChain基本概念
 
 用于开发由LLM驱动的应用程序框架，简化了LLM应用程序生命周期的每个阶段
 
-### <font color=#70AD47>架构（包）</font> 
+### 架构（包）
 
 > - `langchain-core`：定义一些核心接口（轻量级）
 > - `langchain-community`：第三方集成。一些比较流行的包被提取出来
->   - `langchain-openai`
+> 	- `langchain-openai`
 >   - `langchain-anthropic`
 > - `langgraph`：流程/状态控制（可单独工作）
 > - `langserve`：实现以REST API形式部署LangChain runnables和链
 > - `langsmith`：监控和评估LLM App（可单独工作）
 
-### <font color=#70AD47>关于LangChain Expression Language(LCEL)</font> 
+### 关于LangChain Expression Language(LCEL)
 
 声明式的LangChain组件链，为尽可能方便地创建自定义链，运用Runnable标准接口
 
@@ -70,13 +75,13 @@ input type和output type因为组件不同而不同
 - `input_schema`：根据Runnable结构自动生成的`input`Pydantic模型
 - `output_schema`：根据Runnable结构自动生成的`output`Pydantic模型
 
-## <font color=#ED7D31>LangChain组件</font> 
+## LangChain组件
 
 > [!IMPORTANT]
 >
 > 本部分为概述性概念指南，仅描述典型基础代码，列出了官方文档中相关使用方法，请自行查阅
 
-### <font color=#70AD47>LLMs 大语言模型</font> 
+### LLMs 大语言模型
 
 [How-to guides: LLMs](https://python.langchain.com/v0.2/docs/how_to/#llms)
 
@@ -84,7 +89,7 @@ LLMs是传统上比较旧的模型（较新通常是Chat models），将字符�
 
 LangChain允许将这些模型将Messages作为输入，这些输入将被LangChain wrappers格式化为一个字符串，然后再被传到底层模型
 
-### <font color=#70AD47>Chat models 聊天模型</font> 
+### Chat models 聊天模型
 
 [How-to guides: Chat models](https://python.langchain.com/v0.2/docs/how_to/#chat-models)
 
@@ -109,7 +114,7 @@ LangChain允许将这些模型将Messages作为输入，这些输入将被LangCh
 
 LangChain不托管任何Chat models和LLMs，而是依赖第三方集成
 
-### <font color=#70AD47>Messages 消息</font>
+### Messages 消息
 
 一些模型将消息列表作为输入，并返回一条消息。不同类型的消息都包含
 
@@ -120,7 +125,7 @@ LangChain不托管任何Chat models和LLMs，而是依赖第三方集成
 Message主要分为以下几类（仅包含特殊属性）
 
 > - `HumanMessage`：用户输入信息
-> - `AIMessage`：模型信息
+>- `AIMessage`：模型信息
 >   - ` tool_calls`：AIMessage输出的一部分，可以通过`.tool_calls`来访问
 >    - `name`：工具名
 >     - `args`：工具args
@@ -131,7 +136,7 @@ Message主要分为以下几类（仅包含特殊属性）
 >  - `artifact`：用于传递工具执行过程中的任意工具（对跟踪有用，不发送到模型中）
 > - `FunctionMessage`：ToolMesage的的旧版，适用于OpenAI的旧版函数调用API
 
-### <font color=#70AD47>Prompt templates 提示模板</font> 
+### Prompt templates 提示模板 
 
 [How-to guides: Prompt templates](https://python.langchain.com/v0.2/docs/how_to/#prompt-templates)
 
@@ -205,7 +210,7 @@ prompt = ChatPromptTemplate.from_messages([
 res = chain.invoke({"msgs": [HumanMessage(content="hi!")]})
 ```
 
-### <font color=#70AD47>Example selectors 模板选择器</font>
+### Example selectors 模板选择器
 
 [How-to guides: Example selectors](https://python.langchain.com/v0.2/docs/how_to/#example-selectors)
 
@@ -279,7 +284,7 @@ prompt = FewShotPromptTemplate(
 )
 ```
 
-### <font color=#70AD47>Output parsers 输出解析器</font>
+### Output parsers 输出解析器
 
 [How-to guides: Output Paresers](https://python.langchain.com/v0.2/docs/how_to/#output-parsers)
 
@@ -289,19 +294,19 @@ prompt = FewShotPromptTemplate(
 
 负责获取模型输出并将其转化为更适合下游任务的格式。LangChain支持的输出解析列表包含（机翻）：
 
-|      名称       | 支持流传输 | 有格式说明 | 调用LLM |     输入类型      |       输出类型       |
-| :-------------: | :--------: | :--------: | :-----: | :---------------: | :------------------: |
-|      JSON       |     ✅      |     ✅      |         | `str`\|` Message` |     JSON object      |
-|       XML       |     ✅      |     ✅      |         | `str`\|`Message`  |        `dict`        |
-|       CSV       |     ✅      |     ✅      |         | `str`\|`Message`  |     `list[str]`      |
-|  OutputFixing   |            |            |    ✅    | `str`\|`Message`  |                      |
-| RetryWithError  |            |            |    ✅    | `str`\|`Message`  |                      |
-|    Pydantic     |            |     ✅      |         | `str`\|`Message`  | `pydantic.BaseModel` |
-|      YAML       |            |     ✅      |         | `str`\|`Message`  | `pydantic.BaseModel` |
-| PandasDataFrame |            |     ✅      |         | `str`\|`Message`  |        `dict`        |
-|      Enum       |            |     ✅      |         | `str`\|`Message`  |        `enum`        |
-|    Datetime     |            |     ✅      |         | `str`\|`Message`  | `datetime.datetime`  |
-|   Structured    |            |     ✅      |         | `str`\|`Message`  |   `dict[str, str]`   |
+| 名称            | 支持流传输 | 有格式说明 | 调用LLM | 输入类型       | 输出类型           |
+| :---------------: | :----------: | :----------: | :-------: | :--------------: | :------------------: |
+| JSON            | ✅          | ✅          |         | `str`\|` Message` | JSON object     |
+| XML             | ✅          | ✅          |         | `str`\|`Message` | `dict`             |
+| CSV             | ✅          | ✅          |         | `str`\|`Message` | `list[str]`        |
+| OutputFixing    |            |            | ✅       | `str`\|`Message` |                    |
+| RetryWithError  |            |            | ✅       | `str`\|`Message` |                    |
+| Pydantic        |            | ✅          |         | `str`\|`Message` | `pydantic.BaseModel` |
+| YAML            |            | ✅          |         | `str`\|`Message` | `pydantic.BaseModel` |
+| PandasDataFrame |            | ✅          |         | `str`\|`Message` | `dict`             |
+| Enum            |            | ✅          |         | `str`\|`Message` | `enum`             |
+| Datetime        |            | ✅          |         | `str`\|`Message` | `datetime.datetime` |
+| Structured      |            | ✅          |         | `str`\|`Message` | `dict[str, str]` |
 
 **标题行定义**
 
@@ -337,11 +342,10 @@ prompt = FewShotPromptTemplate(
 |    Datetime     | 将响应解析为datetime字符串                                   |
 |   Structured    | 返回结构化信息的输出解析器。由于它只允许字段为字符串，因此它不如其他输出解析器强大。<br />可以在使用较小LLM的场景使用 |
 
-### <font color=#70AD47>Chat history 聊天历史</font>
+### Chat history 聊天历史
 
 LangChain中的一个类，可以来包装任意链。ChatHistory将跟踪底层链的输入和输出，并将它们作为消息附加到消息数据库中。
-
-### <font color=#70AD47>Document 文件</font>
+### Document 文件
 
 使用DocumentLoader读取到数据源后，需要转换为Document对象之后才能使用
 
@@ -350,7 +354,7 @@ Document类有两个属性
 - `page_content: str`：文件内容，通常只是一个字符串
 - `matadata: dict`：与文件相关的任意元数据，能追踪到文件id，文件内容等
 
-### <font color=#70AD47>Document loaders 文件加载器</font>
+### Document loaders 文件加载器
 
 [How-to guides: Document loaders](https://python.langchain.com/v0.2/docs/how_to/#document-loaders)
 
@@ -366,7 +370,7 @@ loader = CSVLoader(file_path=file_path)
 data = loader.load()
 ```
 
-### <font color=#70AD47>Text splitters 文本拆分器</font>
+### Text splitters 文本拆分器
 
 [How-to guides: Text splitters](https://python.langchain.com/v0.2/docs/how_to/#text-splitters)
 
@@ -413,11 +417,11 @@ print(texts[1])
 
 ---
 
-### <font color=#70AD47>Embedding models 嵌入模型（阿里云文档）</font>
+### Embedding models 嵌入模型（阿里云文档）
 
 [基于向量检索服务与TextEmbedding实现语义搜索](https://help.aliyun.com/zh/dashscope/implementation-of-semantic-search-based-on-vector-retrieval-service-and-textembedding?spm=a2c4g.11186623.0.0.50101d61gyL4ye)
 
-以DashScope上[通用文本向量](https://help.aliyun.com/zh/dashscope/developer-reference/text-embedding-quick-start)模型为例，通过输入一段文本，通用文本向量模型会将这段文本变成一个向量，将**文本变成向量**的过程叫 `Embedding`
+以DashScope上[通用文本向量](https://help.aliyun.com/zh/dashscope/developer-reference/text-embedding-quick-start)模型为例，通过输入一段文本，[通用文本向量](https://help.aliyun.com/zh/dashscope/developer-reference/text-embedding-quick-start)模型会将这段文本变成一个向量，将**文本变成向量**的过程叫 `Embedding`
 
 ![embedding流程](img/embedding流程.png)
 
@@ -440,13 +444,13 @@ def generate_embeddings(text):
 print(len(generate_embeddings('hello')))
 ```
 
-### <font color=#70AD47>通过DashVector构建检索：向量入库</font>
+### 通过DashVector构建检索：向量入库
 
 DashVector向量检索服务上的数据以集合（Collection）为单位存储，写入向量前应先创建一个集合来管理数据集，创建数据集的时候需要指定向量为度，因为embeddings的产生用的模型是`model=TextEmbedding.Models.text_embedding_v1`，所以维度为统一均为1536
 
 
 
-### <font color=#70AD47>Vector stores 向量存储</font>
+### Vector stores 向量存储
 
 [DashVector x 通义千问大模型：打造基于专属知识的问答服务](img)
 
@@ -460,13 +464,13 @@ DashVector向量检索服务上的数据以集合（Collection）为单位存储
 2. **相关知识点的提取。**将提问文本向量化后，通过DashVector提取相关知识点的原文
 3. **构造Prompt进行提问。**将相关知识点作为”限定上下文+提问“一起作为prompt询问通义千问
 
-### <font color=#70AD47>Retrievers 检索器</font>
+### Retrievers 检索器
 
 
 
-## <font color=#ED7D31>准备工作</font> 
+## 准备工作
 
-###  <font color=#70AD47>通义</font> 
+###  通义
 
 ```bash
 pip3 install langchain #安装langchain环境
@@ -476,7 +480,7 @@ pip3 install dashscope #灵积模型服务
 pip3 install dashvector #灵积向量检索服务
 ```
 
-### <font color=#70AD47>OpenAI</font> 
+### OpenAI
 
 ```bash
 pip3 install langchain #安装langchain环境
@@ -488,7 +492,7 @@ pip3 install langchain-openai
 >
 > 使用OpenAI的APIkey需要充值，可以尝试使用新账号，但是要验证国外的手机号，比较麻烦，本指南不使用OpenAI API key
 
-### <font color=#70AD47>灵积服务模型</font> 
+### 灵积服务模型
 
 1. 创建账号并申请dashscope api key
 
@@ -517,7 +521,7 @@ pip3 install langchain-openai
 
       [DashVector-API-KEY创建](https://dashvector.console.aliyun.com/api-key)
 
-      ![DashVector_API_KEY](img/DashVector_API_KEY.PNG)
+      ![DashVector_API_KEY](img\DashVector_API_KEY.PNG)
 
       > [!NOTE]
       >
@@ -527,13 +531,13 @@ pip3 install langchain-openai
 
       [Cluster创建](https://common-buy.aliyun.com/?commodityCode=dashvector_vector_public_cn&regionId=cn-beijing&request={"cluster_type":"storage_type","replica":"1"})
 
-      ![创建Cluster](img/创建Cluster.PNG)
+      ![创建Cluster](img\创建Cluster.PNG)
 
    3. 创建Collection
 
       [CollectionList](https://dashvector.console.aliyun.com/cn-beijing/cluster/zydCluster/collectionList)
 
-      ![创建Collection](img/创建Collection.PNG)
+      ![创建Collection](img\创建Collection.PNG)
 
    4. 新增向量数据
 
