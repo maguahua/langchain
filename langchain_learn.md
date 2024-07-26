@@ -521,7 +521,7 @@ pip3 install langchain-openai
 
       [DashVector-API-KEY创建](https://dashvector.console.aliyun.com/api-key)
 
-      ![DashVector_API_KEY](img\DashVector_API_KEY.PNG)
+      ![DashVector_API_KEY](img/DashVector_API_KEY.PNG)
 
       > [!NOTE]
       >
@@ -531,13 +531,13 @@ pip3 install langchain-openai
 
       [Cluster创建](https://common-buy.aliyun.com/?commodityCode=dashvector_vector_public_cn&regionId=cn-beijing&request={"cluster_type":"storage_type","replica":"1"})
 
-      ![创建Cluster](img\创建Cluster.PNG)
+      ![创建Cluster](img/创建Cluster.PNG)
 
    3. 创建Collection
 
       [CollectionList](https://dashvector.console.aliyun.com/cn-beijing/cluster/zydCluster/collectionList)
 
-      ![创建Collection](img\创建Collection.PNG)
+      ![创建Collection](img/创建Collection.PNG)
 
    4. 新增向量数据
 
