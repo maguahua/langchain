@@ -29,7 +29,7 @@ def generate_embeddings(news):
 
 
 if __name__ == '__main__':
-    dashscope.api_key = '{your-dashscope-api-key}'
+    dashscope.api_key = '{sk-95ec6c38888044ce8a5addd4224edc83}'
 
     # 初始化 dashvector client
     client = Client(
