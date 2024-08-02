@@ -502,6 +502,10 @@ pip3 install langchain-openai
 
 ### 灵积服务模型
 
+> [!WARNING]
+>
+> 为使代码更加简洁明了，以下代码省略了代码检测。
+
 1. 创建账号并申请dashscope api key
 
    [DashScope 模型服务灵积/API-KEY管理](https://dashscope.console.aliyun.com/apiKey)
@@ -521,10 +525,13 @@ pip3 install langchain-openai
    ```python
    import os
    from dotenv import load_dotenv
-   # 只要在.env中配置过，只需模块级别加载 load_dotenv()，则可在创建大模型对象时自动识别
-   load_dotenv()
-   # 此时以识别到DASHSCOPE_API_KEY
-   model = Tongyi(temperature=1)
+   
+   load_dotenv(dotenv_path="../.env", verbose=True)
+   
+   # 从环境变量中加载 Dashscope API 密钥
+   dashscope_api_key = os.getenv("DASHSCOPE_API_KEY")
+   # 必须显式配置，否则后面识别不了
+   dashscope.api_key = dashscope_api_key
    ```
 
 4. 向量检索服务
@@ -545,15 +552,16 @@ pip3 install langchain-openai
           color: #999;
           padding: 2px;">创建DASHSCOPE_API_KEY</div>
       </center>
-   
-      > [!NOTE]
+
+
+      > [!CAUTION]
       >
       > DashVector-API-KEY和DASHSCOPE_API_KEY不同
-   
+
    2. 创建Cluster（有免费版）
-   
+
       [Cluster创建](https://common-buy.aliyun.com/?commodityCode=dashvector_vector_public_cn&regionId=cn-beijing&request={"cluster_type":"storage_type","replica":"1"})
-   
+
       <center>
           <img style="border-radius: 0.3125em;
           box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
@@ -564,9 +572,9 @@ pip3 install langchain-openai
           color: #999;
           padding: 2px;">创建cluster</div>
       </center>
-   
+
    3. 创建Collection
-   
+
       <center>
           <img style="border-radius: 0.3125em;
           box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
@@ -577,9 +585,9 @@ pip3 install langchain-openai
           color: #999;
           padding: 2px;">创建collection</div>
       </center>
-      
+
    4. 新增向量数据
-   
+
       ```python
       import json
       
@@ -648,6 +656,11 @@ pip3 install langchain-openai
           print("Response from insert:", rsp)
           assert rsp
       
+      ```
+
+   5. 进行向量查询
+
+      ```python
       # 基于向量检索的语义搜索
       rsp = collection.query(generate_embeddings('应届生 招聘'), output_fields=['title'])
       print("Response from query:", rsp)
@@ -655,59 +668,13 @@ pip3 install langchain-openai
       for doc in rsp.output:
           print(f"id: {doc.id}, title: {doc.fields['title']}, score: {doc.score}")
       ```
-   
-   5. 进行向量查询
-   
-      ```python
-      import os
-      
-      import dashscope
-      from dashscope import TextEmbedding
-      
-      from dashvector import Client, Doc
-      
-      # 这两个和上面一样
-      def prepare_data(path, batch_size=25)
-      def generate_embeddings(news)
-      
-      
-      if __name__ == '__main__':
-          dashscope.api_key = '{sk-95exxx}'
-      
-          # 初始化 dashvector client
-          client = Client(
-              api_key='sk-QC9.....',
-          	endpoint='vrs-cn-fou.....'
-          )
-      
-          # 创建集合：指定集合名称和向量维度, text_embedding_v1 模型产生的向量统一为 1536 维
-          rsp = client.create('your_collection', 1536)
-          assert rsp
-      
-          # 加载语料
-          id = 0
-          collection = client.get('your_collection')
-          for news in list(prepare_data('your_data')):
-              ids = [id + i for i, _ in enumerate(news)]
-              id += len(news)
-      
-              vectors = generate_embeddings(news)
-              # 写入 dashvector 构建索引
-              rsp = collection.upsert(
-                  [
-                      Doc(id=str(id), vector=vector, fields={"raw": doc})
-                      for id, vector, doc in zip(ids, vectors, news)
-                  ]
-              )
-              assert rsp
-      ```
-   
+
       > [!NOTE]
       >
       > 免费的Cluster向量存储上限是10w，多于这个数字存储时会报错。上述代码仅使用train.json中一半的数据量，与范例相比在准确性上显著降低。
       >
       > [返回状态码说明](https://help.aliyun.com/document_detail/2510266.html?spm=5176.28371440.help.dexternal.682666d7FmUoHB)
-      
+
       <center>
           <img style="border-radius: 0.3125em;
           box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
@@ -718,6 +685,89 @@ pip3 install langchain-openai
           color: #999;
           padding: 2px;">在collection中插入向量的返回值</div>
       </center>
+
+   6. 本地知识库的向量化
+
+      ```python
+      import os
+      import dashscope
+      from dashscope import TextEmbedding
+      from dashvector import Client, Doc
+      from dotenv import load_dotenv
+      from logger import Logger
+      
+      load_dotenv(dotenv_path="../.env", verbose=True)
+      
+      # 从环境变量中加载 Dashscope API 密钥
+      dashscope_api_key = os.getenv("DASHSCOPE_API_KEY")
+      # 必须显式配置，不然后面识别不了
+      dashscope.api_key = dashscope_api_key
+      
+      
+      # 处理CEC-Corpus-master中所有数据
+      def prepare_data(path, batch_size=25):
+          batch_docs = []
+          for file in os.listdir(path):
+              with open(path + '/' + file, 'r', encoding='utf-8') as f:
+                  batch_docs.append(f.read())
+                  if len(batch_docs) == batch_size:
+                      yield batch_docs
+                      batch_docs = []
+      
+          if batch_docs:
+              yield batch_docs
+      
+      
+      # 生成向量
+      def generate_embeddings(news):
+          response = TextEmbedding.call(
+              model=TextEmbedding.Models.text_embedding_v1,
+              input=news
+          )
+      
+          embeddings = [record['embedding'] for record in response.output['embeddings']]
+          result = embeddings if isinstance(news, list) else embeddings[0]
+          return result
+      
+      
+      if __name__ == '__main__':
+          # 初始化 dashvector 客户端
+          client = Client(
+              api_key=os.getenv("DASHVECTOR_API_KEY"),
+              endpoint=os.getenv("ENDPOINT")
+          )
+      
+          # 列出现有集合
+          existing_collections = client.list()
+      
+          # 指定集合名称和向量维度
+          collection_name = "CEC-Corpus-TextEmbedding"
+      
+          if collection_name not in existing_collections:
+              rsp = client.create(collection_name, 1536)
+      
+          # 加载数据
+          id = 0
+          # 获取集合
+          collection = client.get(collection_name)
+      
+          for news_batch in prepare_data('CEC-Corpus-master/raw corpus/allSourceText'):
+              ids = [id + i for i, _ in enumerate(news_batch)]
+              id += len(news_batch)
+              vectors = generate_embeddings(news_batch)
+      
+              # 将文档插入集合
+              rsp = collection.upsert(
+                  [
+                      Doc(id=str(doc_id), vector=vector, fields={"raw": doc})
+                      for doc_id, vector, doc in zip(ids, vectors, news_batch)
+                  ]
+              )
+      ```
+
+      
+
+
 
 
 
