@@ -1,27 +1,16 @@
-import logging
 import warnings
 import json
 
 from dashscope import TextEmbedding
 from dashvector import Client, Doc
 
+from logger import Logger
+
 # 忽略所有 UserWarning 警告
 warnings.filterwarnings("ignore", category=UserWarning)
 
-#
-logging.basicConfig(
-    format="%(asctime)s - %(levelname)s - %(name)s - %(message)s",
-    datefmt="%m%d%Y %H:%M:%S",
-    level=logging.INFO
-)
-
-logger = logging.getLogger(__name__)
-
-file_handler = logging.FileHandler("generate_embeddings_test.log")
-file_handler.setLevel(logging.INFO)
-file_handler.setFormatter(logging.Formatter("%(asctime)s - %(levelname)s - %(name)s - %(message)s"))
-logger.addHandler(file_handler)
-
+# 获取当前文件的路径
+log = Logger(__file__)
 
 # 准备数据
 # 输入：path，文件路径，size，每个batch的大小
@@ -65,37 +54,37 @@ client = Client(
     endpoint='vrs-cn-fou3ucvg500011.dashvector.cn-beijing.aliyuncs.com'
 )
 
-logger.info(f"client 正在初始化...")
+log.info(f"client 正在初始化...")
 
 # 指定集合名称和向量维度
-logger.info("正在检查collections...")
+log.info("正在检查collections...")
 existing_collections = client.list()
 
 collection_name = "zydCollection_test"
 
 if collection_name not in existing_collections:
-    logger.info(f"collection{collection_name} 不存在, 正在创建...")
+    log.info(f"collection{collection_name} 不存在, 正在创建...")
     rsp = client.create(collection_name, 1536)
     if rsp.code == 0:
-        logger.info(f"创建collection成功.")
+        log.info(f"创建collection成功.")
     else:
-        logger.info({f"创建collection失败，返回值：{rsp}."})
+        log.info({f"创建collection失败，返回值：{rsp}."})
         raise Exception(f"创建collection失败，返回值：{rsp}.")
 
 else:
-    logger.info(f"collection{collection_name} 已经存在.")
+    log.info(f"collection{collection_name} 已经存在.")
 
 # 获取集合
 collection = client.get(collection_name)
 if not collection:
-    logger.error(f"获取collection失败: {collection_name}.")
+    log.error(f"获取collection失败: {collection_name}.")
     raise Exception(f"获取collection失败: {collection_name}.")
 
 batch_size = 10
-for docs in prepare_data('QBQTC-main/dataset/train.json', batch_size):
+for docs in prepare_data('../dashscope_vector_etc/QBQTC-main/dataset/train.json', batch_size):
     embeddings = generate_embeddings([doc["title"] for doc in docs])
     if not embeddings:
-        logger.error("生成embeddings失败.")
+        log.error("生成embeddings失败.")
         continue
 
     # 插入的数据类型是Doc
@@ -107,7 +96,7 @@ for docs in prepare_data('QBQTC-main/dataset/train.json', batch_size):
     )
 
     if rsp.code == 0:
-        logger.info(f"插入文件成功，返回值：{rsp}")
+        log.info(f"插入文件成功，返回值：{rsp}")
     else:
-        logger.error(f"插入文件失败，返回值：{rsp}.")
+        log.error(f"插入文件失败，返回值：{rsp}.")
         raise Exception(f"插入文件失败，返回值：{rsp}.")
