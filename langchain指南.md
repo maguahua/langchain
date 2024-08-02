@@ -1,67 +1,67 @@
-# LangChainæŒ‡å—
+# LangChainÖ¸ÄÏ
 
-- [LangChainæŒ‡å—](#langchainæŒ‡å—)
-  - [LangChainåŸºæœ¬æ¦‚å¿µ](#langchainåŸºæœ¬æ¦‚å¿µ)
-    - [æ¶æ„ï¼ˆåŒ…ï¼‰](#æ¶æ„åŒ…)
-    - [å…³äºLangChain Expression Language(LCEL)](#å…³äºlangchain-expression-languagelcel)
-  - [LangChainç»„ä»¶](#langchainç»„ä»¶)
-    - [LLMs å¤§è¯­è¨€æ¨¡å‹](#llms-å¤§è¯­è¨€æ¨¡å‹)
-    - [Chat models èŠå¤©æ¨¡å‹](#chat-models-èŠå¤©æ¨¡å‹)
-    - [Messages æ¶ˆæ¯](#messages-æ¶ˆæ¯)
-    - [Prompt templates æç¤ºæ¨¡æ¿](#prompt-templates-æç¤ºæ¨¡æ¿)
+- [LangChainÖ¸ÄÏ](#langchainÖ¸ÄÏ)
+  - [LangChain»ù±¾¸ÅÄî](#langchain»ù±¾¸ÅÄî)
+    - [¼Ü¹¹£¨°ü£©](#¼Ü¹¹°ü)
+    - [¹ØÓÚLangChain Expression Language(LCEL)](#¹ØÓÚlangchain-expression-languagelcel)
+  - [LangChain×é¼ş](#langchain×é¼ş)
+    - [LLMs ´óÓïÑÔÄ£ĞÍ](#llms-´óÓïÑÔÄ£ĞÍ)
+    - [Chat models ÁÄÌìÄ£ĞÍ](#chat-models-ÁÄÌìÄ£ĞÍ)
+    - [Messages ÏûÏ¢](#messages-ÏûÏ¢)
+    - [Prompt templates ÌáÊ¾Ä£°å](#prompt-templates-ÌáÊ¾Ä£°å)
       - [PromptTemplates](#prompttemplates)
       - [ChatPromptTemplates](#chatprompttemplates)
       - [MessagesPlaceholder](#messagesplaceholder)
-    - [Example selectors æ¨¡æ¿é€‰æ‹©å™¨](#example-selectors-æ¨¡æ¿é€‰æ‹©å™¨)
-    - [Output parsers è¾“å‡ºè§£æå™¨](#output-parsers-è¾“å‡ºè§£æå™¨)
-    - [Chat history èŠå¤©å†å²](#chat-history-èŠå¤©å†å²)
-    - [Document æ–‡ä»¶](#document-æ–‡ä»¶)
-    - [Document loaders æ–‡ä»¶åŠ è½½å™¨](#document-loaders-æ–‡ä»¶åŠ è½½å™¨)
-    - [Text splitters æ–‡æœ¬æ‹†åˆ†å™¨](#text-splitters-æ–‡æœ¬æ‹†åˆ†å™¨)
-    - [Embedding models åµŒå…¥æ¨¡å‹ï¼ˆé˜¿é‡Œäº‘æ–‡æ¡£ï¼‰](#embedding-models-åµŒå…¥æ¨¡å‹é˜¿é‡Œäº‘æ–‡æ¡£)
-    - [é€šè¿‡DashVectoræ„å»ºæ£€ç´¢ï¼šå‘é‡å…¥åº“](#é€šè¿‡dashvectoræ„å»ºæ£€ç´¢å‘é‡å…¥åº“)
-    - [Vector stores å‘é‡å­˜å‚¨](#vector-stores-å‘é‡å­˜å‚¨)
-    - [Retrievers æ£€ç´¢å™¨](#retrievers-æ£€ç´¢å™¨)
-  - [å‡†å¤‡å·¥ä½œ](#å‡†å¤‡å·¥ä½œ)
-    - [é€šä¹‰](#é€šä¹‰)
+    - [Example selectors Ä£°åÑ¡ÔñÆ÷](#example-selectors-Ä£°åÑ¡ÔñÆ÷)
+    - [Output parsers Êä³ö½âÎöÆ÷](#output-parsers-Êä³ö½âÎöÆ÷)
+    - [Chat history ÁÄÌìÀúÊ·](#chat-history-ÁÄÌìÀúÊ·)
+    - [Document ÎÄ¼ş](#document-ÎÄ¼ş)
+    - [Document loaders ÎÄ¼ş¼ÓÔØÆ÷](#document-loaders-ÎÄ¼ş¼ÓÔØÆ÷)
+    - [Text splitters ÎÄ±¾²ğ·ÖÆ÷](#text-splitters-ÎÄ±¾²ğ·ÖÆ÷)
+    - [Embedding models Ç¶ÈëÄ£ĞÍ£¨°¢ÀïÔÆÎÄµµ£©](#embedding-models-Ç¶ÈëÄ£ĞÍ°¢ÀïÔÆÎÄµµ)
+    - [Í¨¹ıDashVector¹¹½¨¼ìË÷£ºÏòÁ¿Èë¿â](#Í¨¹ıdashvector¹¹½¨¼ìË÷ÏòÁ¿Èë¿â)
+    - [Vector stores ÏòÁ¿´æ´¢](#vector-stores-ÏòÁ¿´æ´¢)
+    - [Retrievers ¼ìË÷Æ÷](#retrievers-¼ìË÷Æ÷)
+  - [×¼±¸¹¤×÷](#×¼±¸¹¤×÷)
+    - [Í¨Òå](#Í¨Òå)
     - [OpenAI](#openai)
-    - [çµç§¯æœåŠ¡æ¨¡å‹](#çµç§¯æœåŠ¡æ¨¡å‹)
+    - [Áé»ı·şÎñÄ£ĞÍ](#Áé»ı·şÎñÄ£ĞÍ)
 
 
 
-## <font color=#ED7D31>LangChainåŸºæœ¬æ¦‚å¿µ</font>
+## LangChain»ù±¾¸ÅÄî
 
-ç”¨äºå¼€å‘ç”±LLMé©±åŠ¨çš„åº”ç”¨ç¨‹åºæ¡†æ¶ï¼Œç®€åŒ–äº†LLMåº”ç”¨ç¨‹åºç”Ÿå‘½å‘¨æœŸçš„æ¯ä¸ªé˜¶æ®µ
+ÓÃÓÚ¿ª·¢ÓÉLLMÇı¶¯µÄÓ¦ÓÃ³ÌĞò¿ò¼Ü£¬¼ò»¯ÁËLLMÓ¦ÓÃ³ÌĞòÉúÃüÖÜÆÚµÄÃ¿¸ö½×¶Î
 
-### <font color=#70AD47>æ¶æ„ï¼ˆåŒ…ï¼‰</font>
+### ¼Ü¹¹£¨°ü£©
 
-> - `langchain-core`ï¼šå®šä¹‰ä¸€äº›æ ¸å¿ƒæ¥å£ï¼ˆè½»é‡çº§ï¼‰
-> - `langchain-community`ï¼šç¬¬ä¸‰æ–¹é›†æˆã€‚ä¸€äº›æ¯”è¾ƒæµè¡Œçš„åŒ…è¢«æå–å‡ºæ¥
+> - `langchain-core`£º¶¨ÒåÒ»Ğ©ºËĞÄ½Ó¿Ú£¨ÇáÁ¿¼¶£©
+> - `langchain-community`£ºµÚÈı·½¼¯³É¡£Ò»Ğ©±È½ÏÁ÷ĞĞµÄ°ü±»ÌáÈ¡³öÀ´
 > 	- `langchain-openai`
 >   - `langchain-anthropic`
-> - `langgraph`ï¼šæµç¨‹/çŠ¶æ€æ§åˆ¶ï¼ˆå¯å•ç‹¬å·¥ä½œï¼‰
-> - `langserve`ï¼šå®ç°ä»¥REST APIå½¢å¼éƒ¨ç½²LangChain runnableså’Œé“¾
-> - `langsmith`ï¼šç›‘æ§å’Œè¯„ä¼°LLM Appï¼ˆå¯å•ç‹¬å·¥ä½œï¼‰
+> - `langgraph`£ºÁ÷³Ì/×´Ì¬¿ØÖÆ£¨¿Éµ¥¶À¹¤×÷£©
+> - `langserve`£ºÊµÏÖÒÔREST APIĞÎÊ½²¿ÊğLangChain runnablesºÍÁ´
+> - `langsmith`£º¼à¿ØºÍÆÀ¹ÀLLM App£¨¿Éµ¥¶À¹¤×÷£©
 
-### <font color=#70AD47>å…³äºLangChain Expression Language(LCEL)</font>
+### ¹ØÓÚLangChain Expression Language(LCEL)
 
-å£°æ˜å¼çš„LangChainç»„ä»¶é“¾ï¼Œä¸ºå°½å¯èƒ½æ–¹ä¾¿åœ°åˆ›å»ºè‡ªå®šä¹‰é“¾ï¼Œè¿ç”¨Runnableæ ‡å‡†æ¥å£
+ÉùÃ÷Ê½µÄLangChain×é¼şÁ´£¬Îª¾¡¿ÉÄÜ·½±ãµØ´´½¨×Ô¶¨ÒåÁ´£¬ÔËÓÃRunnable±ê×¼½Ó¿Ú
 
-> - `stream`ï¼šé€å—è¿”å›ç›¸åº”å†…å®¹ï¼ˆå“åº”åˆ†æ®µå‘é€ï¼‰
-> - `invoke`ï¼šå¯¹å•ä¸ªè¾“å…¥è°ƒç”¨é“¾å¹¶è·å–ç»“æœ
-> - `batch`ï¼šå¯¹å¤šä¸ªè¾“å…¥è°ƒç”¨é“¾å¹¶è·å–ç»“æœï¼Œä¸€æ¬¡æ€§å¤„ç†è¿™äº›è¾“å…¥
+> - `stream`£ºÖğ¿é·µ»ØÏàÓ¦ÄÚÈİ£¨ÏìÓ¦·Ö¶Î·¢ËÍ£©
+> - `invoke`£º¶Ôµ¥¸öÊäÈëµ÷ÓÃÁ´²¢»ñÈ¡½á¹û
+> - `batch`£º¶Ô¶à¸öÊäÈëµ÷ÓÃÁ´²¢»ñÈ¡½á¹û£¬Ò»´ÎĞÔ´¦ÀíÕâĞ©ÊäÈë
 
-ä¸Šè¿°æ¥å£ä¹Ÿå¯¹åº”å¼‚æ­¥æ–¹æ³•ï¼Œåº”ä¸`asyncio`çš„`await`è¯­æ³•ä¸€èµ·ä½¿ç”¨å®ç°å¹¶å‘
+ÉÏÊö½Ó¿ÚÒ²¶ÔÓ¦Òì²½·½·¨£¬Ó¦Óë`asyncio`µÄ`await`Óï·¨Ò»ÆğÊ¹ÓÃÊµÏÖ²¢·¢
 
-> - `astream`ï¼š
-> - `ainvoke`ï¼š
-> - `abatch`ï¼š
-> - `astream_log`ï¼šå¼‚æ­¥é€å—è¿”å›ä¸­é—´æ­¥éª¤å’Œæœ€ç»ˆå“åº”ï¼ˆåœ¨å¤„ç†è¿‡ç¨‹ä¸­å¯å®æ—¶è·å–ä¸­é—´æ­¥éª¤ç»“æœï¼‰
-> - `astream_events`ï¼šå¼‚æ­¥é€å—è¿”å›é“¾ä¸­çš„äº‹ä»¶ï¼ˆlangchain-core 0.1.14ä¸­å¼•å…¥betaç‰ˆï¼‰
+> - `astream`£º
+> - `ainvoke`£º
+> - `abatch`£º
+> - `astream_log`£ºÒì²½Öğ¿é·µ»ØÖĞ¼ä²½ÖèºÍ×îÖÕÏìÓ¦£¨ÔÚ´¦Àí¹ı³ÌÖĞ¿ÉÊµÊ±»ñÈ¡ÖĞ¼ä²½Öè½á¹û£©
+> - `astream_events`£ºÒì²½Öğ¿é·µ»ØÁ´ÖĞµÄÊÂ¼ş£¨langchain-core 0.1.14ÖĞÒıÈëbeta°æ£©
 
-input typeå’Œoutput typeå› ä¸ºç»„ä»¶ä¸åŒè€Œä¸åŒ
+input typeºÍoutput typeÒòÎª×é¼ş²»Í¬¶ø²»Í¬
 
-|     ç»„ä»¶     |                      è¾“å…¥ç±»å‹                       |       è¾“å‡ºç±»å‹        |
+|     ×é¼ş     |                      ÊäÈëÀàĞÍ                       |       Êä³öÀàĞÍ        |
 | :----------: | :-------------------------------------------------: | :-------------------: |
 |    Prompt    |                     Dictionary                      |      PromptValue      |
 |  ChatModel   | Single string,list ofchat messages or a PromptValue |      ChatMessage      |
@@ -70,122 +70,110 @@ input typeå’Œoutput typeå› ä¸ºç»„ä»¶ä¸åŒè€Œä¸åŒ
 |  Retriever   |                    Single string                    |   List of Documents   |
 |     Tool     | Single string or dictionary, depending on the tool  |  Depends on the tool  |
 
-æ‰€æœ‰çš„runnableéƒ½ä¼šæš´éœ²`input`å’Œ`output`æ–¹æ¡ˆä»¥ä¾¿æ£€æŸ¥
+ËùÓĞµÄrunnable¶¼»á±©Â¶`input`ºÍ`output`·½°¸ÒÔ±ã¼ì²é
 
-- `input_schema`ï¼šæ ¹æ®Runnableç»“æ„è‡ªåŠ¨ç”Ÿæˆçš„`input`Pydanticæ¨¡å‹
-- `output_schema`ï¼šæ ¹æ®Runnableç»“æ„è‡ªåŠ¨ç”Ÿæˆçš„`output`Pydanticæ¨¡å‹
+- `input_schema`£º¸ù¾İRunnable½á¹¹×Ô¶¯Éú³ÉµÄ`input`PydanticÄ£ĞÍ
+- `output_schema`£º¸ù¾İRunnable½á¹¹×Ô¶¯Éú³ÉµÄ`output`PydanticÄ£ĞÍ
 
-## <font color=#ED7D31>LangChainç»„ä»¶</font>
+## LangChain×é¼ş
 
 > [!IMPORTANT]
 >
-> æœ¬éƒ¨åˆ†ä¸ºæ¦‚è¿°æ€§æ¦‚å¿µæŒ‡å—ï¼Œä»…æè¿°å…¸å‹åŸºç¡€ä»£ç ï¼Œåˆ—å‡ºäº†å®˜æ–¹æ–‡æ¡£ä¸­ç›¸å…³ä½¿ç”¨æ–¹æ³•ï¼Œè¯·è‡ªè¡ŒæŸ¥é˜…
+> ±¾²¿·ÖÎª¸ÅÊöĞÔ¸ÅÄîÖ¸ÄÏ£¬½öÃèÊöµäĞÍ»ù´¡´úÂë£¬ÁĞ³öÁË¹Ù·½ÎÄµµÖĞÏà¹ØÊ¹ÓÃ·½·¨£¬Çë×ÔĞĞ²éÔÄ
 
-### <font color=#70AD47>LLMs å¤§è¯­è¨€æ¨¡å‹</font>
+### LLMs ´óÓïÑÔÄ£ĞÍ
 
 [How-to guides: LLMs](https://python.langchain.com/v0.2/docs/how_to/#llms)
 
-LLMsæ˜¯ä¼ ç»Ÿä¸Šæ¯”è¾ƒæ—§çš„æ¨¡å‹ï¼ˆè¾ƒæ–°é€šå¸¸æ˜¯Chat modelsï¼‰ï¼Œå°†å­—ç¬¦ä¸²ä½œä¸ºè¾“å…¥å¹¶è¿”å›å­—ç¬¦ä¸²
+LLMsÊÇ´«Í³ÉÏ±È½Ï¾ÉµÄÄ£ĞÍ£¨½ÏĞÂÍ¨³£ÊÇChat models£©£¬½«×Ö·û´®×÷ÎªÊäÈë²¢·µ»Ø×Ö·û´®
 
-LangChainå…è®¸å°†è¿™äº›æ¨¡å‹å°†Messagesä½œä¸ºè¾“å…¥ï¼Œè¿™äº›è¾“å…¥å°†è¢«LangChain wrappersæ ¼å¼åŒ–ä¸ºä¸€ä¸ªå­—ç¬¦ä¸²ï¼Œç„¶åå†è¢«ä¼ åˆ°åº•å±‚æ¨¡å‹
+LangChainÔÊĞí½«ÕâĞ©Ä£ĞÍ½«Messages×÷ÎªÊäÈë£¬ÕâĞ©ÊäÈë½«±»LangChain wrappers¸ñÊ½»¯ÎªÒ»¸ö×Ö·û´®£¬È»ºóÔÙ±»´«µ½µ×²ãÄ£ĞÍ
 
-### <font color=#70AD47>Chat models èŠå¤©æ¨¡å‹</font>
+### Chat models ÁÄÌìÄ£ĞÍ
 
 [How-to guides: Chat models](https://python.langchain.com/v0.2/docs/how_to/#chat-models)
 
-æ¶ˆæ¯ä½œä¸ºè¾“å…¥å’Œè¾“å‡ºï¼ˆä¸æ˜¯çº¯æ–‡æœ¬ï¼‰çš„è¯­è¨€æ¨¡å‹ï¼Œä½†å…è®¸å°†å­—ç¬¦ä¸²ä½œä¸ºè¾“å…¥ä½œä¸º`HumanMessage`ä¼ é€’ç»™åº•å±‚æ¨¡å‹
+ÏûÏ¢×÷ÎªÊäÈëºÍÊä³ö£¨²»ÊÇ´¿ÎÄ±¾£©µÄÓïÑÔÄ£ĞÍ£¬µ«ÔÊĞí½«×Ö·û´®×÷ÎªÊäÈë×÷Îª`HumanMessage`´«µİ¸øµ×²ãÄ£ĞÍ
 
-**ä¸€äº›æ ‡å‡†å‚æ•°**
+**Ò»Ğ©±ê×¼²ÎÊı**
 
-> - `model`ï¼šæ¨¡å‹å
-> - `temperature`ï¼š0-1ä¹‹é—´ï¼Œæ•°å­—è¶Šå¤§ï¼Œllmçš„åˆ›é€ åŠ›è¶Šå¼ºï¼ˆè¶Šä¸ç²¾ç¡®ï¼‰
-> - `timeout`ï¼šè¯·æ±‚è¶…æ—¶æ—¶é—´
-> - `max_tokens`ï¼šæœ€å¤§å¯ç”Ÿæˆtokens
-> - `stop`ï¼šé»˜è®¤åœæ­¢åºåˆ—
-> - `max_retries`ï¼šæœ€å¤§é‡æ–°è¯·æ±‚æ¬¡æ•°
-> - `api_key`ï¼šæ¨¡å‹æä¾›è€…APIå¯†é’¥ï¼ˆå¦‚DASHSCOPE_API_KEYï¼ŒOPEN_API_KEYï¼‰
-> - `base_url`ï¼šå‘é€è¯·æ±‚çš„ç«¯ç‚¹
+> - `model`£ºÄ£ĞÍÃû
+> - `temperature`£º0-1Ö®¼ä£¬Êı×ÖÔ½´ó£¬llmµÄ´´ÔìÁ¦Ô½Ç¿£¨Ô½²»¾«È·£©
+> - `timeout`£ºÇëÇó³¬Ê±Ê±¼ä
+> - `max_tokens`£º×î´ó¿ÉÉú³Étokens
+> - `stop`£ºÄ¬ÈÏÍ£Ö¹ĞòÁĞ
+> - `max_retries`£º×î´óÖØĞÂÇëÇó´ÎÊı
+> - `api_key`£ºÄ£ĞÍÌá¹©ÕßAPIÃÜÔ¿£¨ÈçDASHSCOPE_API_KEY£¬OPEN_API_KEY£©
+> - `base_url`£º·¢ËÍÇëÇóµÄ¶Ëµã
 
 > [!NOTE]
 >
-> - ä¸æ˜¯æ‰€æœ‰çš„æ¨¡å‹ä¸­éƒ½åŒ…å«å…¨éƒ¨æ ‡å‡†å‚æ•°ï¼Œæ²¡æœ‰è¢«å…¬å¼€çš„æ ‡å‡†å‚æ•°ä¸èƒ½è¢«ä½¿ç”¨
-> - æ ‡å‡†å‚æ•°åªåœ¨é‚£äº›æœ‰è‡ªå·±é›†æˆåŒ…çš„é›†æˆä¸­å¼ºåˆ¶æ‰§è¡Œï¼ˆlangchain-openaiç­‰ï¼‰ï¼Œåœ¨langchain-communityä¸­æ ‡å‡†å‚æ•°ä¸è¢«å¼ºåˆ¶æ‰§è¡Œ
-> - å¯¹äºå¤šæ¨¡æ€æ¨¡å‹ï¼Œå› å…¶ä¸å¸¸è§ï¼Œå› æ­¤è¿˜æ²¡æœ‰æ ‡å‡†åŒ–å®šä¹‰çš„API
+> - ²»ÊÇËùÓĞµÄÄ£ĞÍÖĞ¶¼°üº¬È«²¿±ê×¼²ÎÊı£¬Ã»ÓĞ±»¹«¿ªµÄ±ê×¼²ÎÊı²»ÄÜ±»Ê¹ÓÃ
+> - ±ê×¼²ÎÊıÖ»ÔÚÄÇĞ©ÓĞ×Ô¼º¼¯³É°üµÄ¼¯³ÉÖĞÇ¿ÖÆÖ´ĞĞ£¨langchain-openaiµÈ£©£¬ÔÚlangchain-communityÖĞ±ê×¼²ÎÊı²»±»Ç¿ÖÆÖ´ĞĞ
+> - ¶ÔÓÚ¶àÄ£Ì¬Ä£ĞÍ£¬ÒòÆä²»³£¼û£¬Òò´Ë»¹Ã»ÓĞ±ê×¼»¯¶¨ÒåµÄAPI
 
-LangChainä¸æ‰˜ç®¡ä»»ä½•Chat modelså’ŒLLMsï¼Œè€Œæ˜¯ä¾èµ–ç¬¬ä¸‰æ–¹é›†æˆ
+LangChain²»ÍĞ¹ÜÈÎºÎChat modelsºÍLLMs£¬¶øÊÇÒÀÀµµÚÈı·½¼¯³É
 
-### <font color=#70AD47>Messages æ¶ˆæ¯</font>
+### Messages ÏûÏ¢
 
-ä¸€äº›æ¨¡å‹å°†æ¶ˆæ¯åˆ—è¡¨ä½œä¸ºè¾“å…¥ï¼Œå¹¶è¿”å›ä¸€æ¡æ¶ˆæ¯ã€‚ä¸åŒç±»å‹çš„æ¶ˆæ¯éƒ½åŒ…å«
+Ò»Ğ©Ä£ĞÍ½«ÏûÏ¢ÁĞ±í×÷ÎªÊäÈë£¬²¢·µ»ØÒ»ÌõÏûÏ¢¡£²»Í¬ÀàĞÍµÄÏûÏ¢¶¼°üº¬
 
-> - `role`:è°æäº¤çš„ä¿¡æ¯ï¼ŒLangChainé’ˆå¯¹ä¸åŒçš„roleæœ‰ä¸åŒçš„æ¶ˆæ¯ç±»
-> - `content`:ä¿¡æ¯å†…å®¹ï¼Œä¸€ä¸ªå­—ç¬¦ä¸²ï¼ˆå¤§å¤šæ•°æ¨¡å‹å¤„ç†è¿™ç§å†…å®¹ï¼‰ï¼›ä¸€ä¸ªå­—å…¸åˆ—è¡¨ï¼ˆç”¨äºå¤šæ¨¡æ€è¾“å…¥ï¼‰
-> - `response_metadata`:åŒ…å«æœ‰å…³å“åº”çš„é™„åŠ å…ƒæ•°æ®ï¼Œä¸€èˆ¬éƒ½æ˜¯æ¨¡å‹ä¸­çš„ä¸“ç”¨æ•°æ®ï¼Œå¯èƒ½ä¼šå­˜å‚¨æ—¥å¿—é—®é¢˜å’Œtokensä½¿ç”¨æƒ…å†µç­‰ä¿¡æ¯
+> - `role`:Ë­Ìá½»µÄĞÅÏ¢£¬LangChainÕë¶Ô²»Í¬µÄroleÓĞ²»Í¬µÄÏûÏ¢Àà
+> - `content`:ĞÅÏ¢ÄÚÈİ£¬Ò»¸ö×Ö·û´®£¨´ó¶àÊıÄ£ĞÍ´¦ÀíÕâÖÖÄÚÈİ£©£»Ò»¸ö×ÖµäÁĞ±í£¨ÓÃÓÚ¶àÄ£Ì¬ÊäÈë£©
+> - `response_metadata`:°üº¬ÓĞ¹ØÏìÓ¦µÄ¸½¼ÓÔªÊı¾İ£¬Ò»°ã¶¼ÊÇÄ£ĞÍÖĞµÄ×¨ÓÃÊı¾İ£¬¿ÉÄÜ»á´æ´¢ÈÕÖ¾ÎÊÌâºÍtokensÊ¹ÓÃÇé¿öµÈĞÅÏ¢
 
-Messageä¸»è¦åˆ†ä¸ºä»¥ä¸‹å‡ ç±»ï¼ˆä»…åŒ…å«ç‰¹æ®Šå±æ€§ï¼‰
+MessageÖ÷Òª·ÖÎªÒÔÏÂ¼¸Àà£¨½ö°üº¬ÌØÊâÊôĞÔ£©
 
-> - `HumanMessage`ï¼šç”¨æˆ·è¾“å…¥ä¿¡æ¯
->- `AIMessage`ï¼šæ¨¡å‹ä¿¡æ¯
->   - ` tool_calls`ï¼šAIMessageè¾“å‡ºçš„ä¸€éƒ¨åˆ†ï¼Œå¯ä»¥é€šè¿‡`.tool_calls`æ¥è®¿é—®
->    - `name`ï¼šå·¥å…·å
->     - `args`ï¼šå·¥å…·args
->     - ` id`ï¼š tool callçš„id
-> - `SystemMessage`ï¼šä¸€æ¡ç³»ç»Ÿæ¶ˆæ¯ï¼Œå‘Šè¯‰æ¨¡å‹æ€ä¹ˆåšï¼ˆä¸æ˜¯æ¯ä¸ªæ¨¡å‹éƒ½æ”¯æŒï¼‰
-> - `ToolMessage`ï¼štool callä¹‹åçš„ç»“æœ
->   - `tool_call_id`ï¼šç”¨äºä¼ é€’äº§ç”Ÿæ­¤ç»“æœçš„tool callçš„id
->  - `artifact`ï¼šç”¨äºä¼ é€’å·¥å…·æ‰§è¡Œè¿‡ç¨‹ä¸­çš„ä»»æ„å·¥å…·ï¼ˆå¯¹è·Ÿè¸ªæœ‰ç”¨ï¼Œä¸å‘é€åˆ°æ¨¡å‹ä¸­ï¼‰
-> - `FunctionMessage`ï¼šToolMesageçš„çš„æ—§ç‰ˆï¼Œé€‚ç”¨äºOpenAIçš„æ—§ç‰ˆå‡½æ•°è°ƒç”¨API
+> - `HumanMessage`£ºÓÃ»§ÊäÈëĞÅÏ¢
+>- `AIMessage`£ºÄ£ĞÍĞÅÏ¢
+>   - ` tool_calls`£ºAIMessageÊä³öµÄÒ»²¿·Ö£¬¿ÉÒÔÍ¨¹ı`.tool_calls`À´·ÃÎÊ
+>    - `name`£º¹¤¾ßÃû
+>     - `args`£º¹¤¾ßargs
+>     - ` id`£º tool callµÄid
+> - `SystemMessage`£ºÒ»ÌõÏµÍ³ÏûÏ¢£¬¸æËßÄ£ĞÍÔõÃ´×ö£¨²»ÊÇÃ¿¸öÄ£ĞÍ¶¼Ö§³Ö£©
+> - `ToolMessage`£ºtool callÖ®ºóµÄ½á¹û
+>   - `tool_call_id`£ºÓÃÓÚ´«µİ²úÉú´Ë½á¹ûµÄtool callµÄid
+>  - `artifact`£ºÓÃÓÚ´«µİ¹¤¾ßÖ´ĞĞ¹ı³ÌÖĞµÄÈÎÒâ¹¤¾ß£¨¶Ô¸ú×ÙÓĞÓÃ£¬²»·¢ËÍµ½Ä£ĞÍÖĞ£©
+> - `FunctionMessage`£ºToolMesageµÄµÄ¾É°æ£¬ÊÊÓÃÓÚOpenAIµÄ¾É°æº¯Êıµ÷ÓÃAPI
 
-### <font color=#70AD47>Prompt templates æç¤ºæ¨¡æ¿</font> 
+### Prompt templates ÌáÊ¾Ä£°å 
 
 [How-to guides: Prompt templates](https://python.langchain.com/v0.2/docs/how_to/#prompt-templates)
 
-é€šä¿—è¯´ï¼Œpromptå°±æ˜¯åœ¨ä¸ChatGPTèŠå¤©æ—¶ï¼Œç”¨æˆ·åœ¨èŠå¤©æ¡†è¾“å…¥çš„æ–‡å­—ï¼ˆ**å‘å‡ºçš„æŒ‡ä»¤**ï¼‰
+Í¨Ë×Ëµ£¬prompt¾ÍÊÇÔÚÓëChatGPTÁÄÌìÊ±£¬ÓÃ»§ÔÚÁÄÌì¿òÊäÈëµÄÎÄ×Ö£¨**·¢³öµÄÖ¸Áî**£©
 
-- è¾“å…¥ä¸ºå­—å…¸ï¼Œæ¯ä¸ªé”®ä»£è¡¨æç¤ºæ¨¡æ¿ä¸­è¦å¡«å†™çš„å˜é‡
-- è¾“å‡ºä¸º`PromptValue`ï¼Œå¯ä»¥è½¬æ¢ä¸ºLLMæˆ–ChatModelï¼Œä¹Ÿå¯ä»¥è½¬æ¢ä¸ºå­—ç¬¦ä¸²æˆ–æ¶ˆæ¯åˆ—è¡¨ï¼ˆä¾¿äºå­—ç¬¦ä¸²å’Œæ¶ˆæ¯ä¹‹é—´çš„ç±»å‹è½¬æ¢ï¼‰
+- ÊäÈëÎª×Öµä£¬Ã¿¸ö¼ü´ú±íÌáÊ¾Ä£°åÖĞÒªÌîĞ´µÄ±äÁ¿
+- Êä³öÎª`PromptValue`£¬¿ÉÒÔ×ª»»ÎªLLM»òChatModel£¬Ò²¿ÉÒÔ×ª»»Îª×Ö·û´®»òÏûÏ¢ÁĞ±í£¨±ãÓÚ×Ö·û´®ºÍÏûÏ¢Ö®¼äµÄÀàĞÍ×ª»»£©
 
 #### PromptTemplates
 
-ç”¨äºæ ¼å¼åŒ–å•ä¸ª**å­—ç¬¦ä¸²**ï¼Œé€šå¸¸ç”¨äºæ¯”è¾ƒç®€å•çš„è¾“å…¥ã€‚æ„é€ å’Œä½¿ç”¨PromptTemplateçš„å¸¸è§æ–¹æ³•
+ÓÃÓÚ¸ñÊ½»¯µ¥¸ö**×Ö·û´®**£¬Í¨³£ÓÃÓÚ±È½Ï¼òµ¥µÄÊäÈë¡£¹¹ÔìºÍÊ¹ÓÃPromptTemplateµÄ³£¼û·½·¨
 
 ```python
-import os
-
-from dotenv import find_dotenv, load_dotenv
 from langchain.prompts import PromptTemplate
-from langchain_community.llms import Tongyi
 
-load_dotenv(find_dotenv())
-# éœ€è¦é…ç½®ç¯å¢ƒå˜é‡DASHSCOPE_API_KEY
-DASHSCOPE_API_KEY = os.environ["DASHSCOPE_API_KEY"]
-
-model = Tongyi(temperature=1)
-
-# from_templateè¿”å›å€¼ä¸ºPromptValue
+# from_template·µ»ØÖµÎªPromptValue
 prompt = PromptTemplate.from_template("tell me a joke about {topic}")
 
-# chainçš„ç±»å‹ä¸ºRunnableSerializable
+# chainµÄÀàĞÍÎªRunnableSerializable
 chain = prompt | model
-
 res = chain.invoke({"topic": "cats"})
-
 print(res)
 ```
 
 > [!NOTE]
 >
-> 1. DASHSCOPE_API_KEYçš„åˆ›å»ºå’Œä½¿ç”¨åœ¨[å‡†å¤‡å·¥ä½œ](#å‡†å¤‡å·¥ä½œ)ä¸­æè¿°ï¼Œä»¥ä¸‹ä»£ç å°†çœç•¥è·å–API keyéƒ¨åˆ†ä»£ç 
-> 2. æ¨¡å‹çš„è°ƒç”¨æ–¹æ³•é»˜è®¤ä¸ºä»¥ä¸Šæ–¹æ³•
+> 1. DASHSCOPE_API_KEYµÄ´´½¨ºÍÊ¹ÓÃÔÚ[×¼±¸¹¤×÷](#×¼±¸¹¤×÷)ÖĞÃèÊö£¬ÒÔÏÂ´úÂë½«Ê¡ÂÔ»ñÈ¡API key²¿·Ö´úÂë
+> 2. Ä£ĞÍµÄµ÷ÓÃ·½·¨Ä¬ÈÏÎªÒÔÉÏ·½·¨
 
 #### ChatPromptTemplates
 
-ä¸º**Chat models**ç”Ÿæˆæç¤ºæ¨¡æ¿â€”â€”ä¸€ä¸ªèŠå¤©ä¿¡æ¯åˆ—è¡¨ï¼Œåˆ—è¡¨ä¸­çš„æ¯ä¸€æ¡ä¿¡æ¯éƒ½æœ‰ä¸€ä¸ªèº«ä»½ï¼Œæ¯”å¦‚ç³»ç»Ÿã€ç”¨æˆ·æˆ–AI
+Îª**Chat models**Éú³ÉÌáÊ¾Ä£°å¡ª¡ªÒ»¸öÁÄÌìĞÅÏ¢ÁĞ±í£¬ÁĞ±íÖĞµÄÃ¿Ò»ÌõĞÅÏ¢¶¼ÓĞÒ»¸öÉí·İ£¬±ÈÈçÏµÍ³¡¢ÓÃ»§»òAI
 
 ```python
 from langchain.prompts import ChatPromptTemplate
 
-# ChatPromptTemplateè°ƒç”¨æ—¶ä¼šæ„é€ ä¸¤ä¸ªæ¶ˆæ¯ï¼ŒSystemMessageå’ŒHumanMessage
+# ChatPromptTemplateµ÷ÓÃÊ±»á¹¹ÔìÁ½¸öÏûÏ¢£¬SystemMessageºÍHumanMessage
 prompt = ChatPromptTemplate.from_messages(
     [
         ("system", "you are a helpful assistant"),
@@ -196,7 +184,7 @@ prompt = ChatPromptTemplate.from_messages(
 
 #### MessagesPlaceholder
 
-å¦‚æœæƒ³ä¼ è¿›ä¸€ä¸ªmessageåˆ—è¡¨ï¼Œå¹¶å°†å…¶æ’å…¥ç‰¹å®šä½ç½®ï¼Œå¯ä»¥ä½¿ç”¨MessagesPlaceholder
+Èç¹ûÏë´«½øÒ»¸ömessageÁĞ±í£¬²¢½«Æä²åÈëÌØ¶¨Î»ÖÃ£¬¿ÉÒÔÊ¹ÓÃMessagesPlaceholder
 
 ```python
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
@@ -210,16 +198,16 @@ prompt = ChatPromptTemplate.from_messages([
 res = chain.invoke({"msgs": [HumanMessage(content="hi!")]})
 ```
 
-### <font color=#70AD47>Example selectors æ¨¡æ¿é€‰æ‹©å™¨</font>
+### Example selectors Ä£°åÑ¡ÔñÆ÷
 
 [How-to guides: Example selectors](https://python.langchain.com/v0.2/docs/how_to/#example-selectors)
 
-ä¸ºæé«˜è¯­è¨€æ¨¡å‹çš„æ€§èƒ½ï¼Œå¸¸è§çš„æ–¹æ³•æ˜¯å°†ç¤ºä¾‹åŒ…å«åœ¨æç¤ºä¸­ã€‚Example selectorså°±æ˜¯è´Ÿè´£é€‰æ‹©è¿™äº›ç¤ºä¾‹å¹¶å°†å®ƒä»¬æ ¼å¼åŒ–åˆ°æç¤ºä¸­çš„å·¥å…·ç±»ï¼Œä¸€èˆ¬æœ‰ä»¥ä¸‹æ–¹æ³•
+ÎªÌá¸ßÓïÑÔÄ£ĞÍµÄĞÔÄÜ£¬³£¼ûµÄ·½·¨ÊÇ½«Ê¾Àı°üº¬ÔÚÌáÊ¾ÖĞ¡£Example selectors¾ÍÊÇ¸ºÔğÑ¡ÔñÕâĞ©Ê¾Àı²¢½«ËüÃÇ¸ñÊ½»¯µ½ÌáÊ¾ÖĞµÄ¹¤¾ßÀà£¬Ò»°ãÓĞÒÔÏÂ·½·¨
 
-> 1. ç¡¬ç¼–ç ï¼šç›´æ¥åœ¨æç¤ºä¸­å†™å…¥å›ºå®šçš„ç¤ºä¾‹
-> 2. åŠ¨æ€é€‰æ‹©ç¤ºä¾‹ï¼šæ ¹æ®å…·ä½“æƒ…å†µåŠ¨æ€é€‰æ‹©åˆé€‚çš„ç¤ºä¾‹
+> 1. Ó²±àÂë£ºÖ±½ÓÔÚÌáÊ¾ÖĞĞ´Èë¹Ì¶¨µÄÊ¾Àı
+> 2. ¶¯Ì¬Ñ¡ÔñÊ¾Àı£º¸ù¾İ¾ßÌåÇé¿ö¶¯Ì¬Ñ¡ÔñºÏÊÊµÄÊ¾Àı
 
-ä¸‹é¢è¿™æ®µä»£ç ä¸­ï¼Œ è‹¥è®©å…¶ç¿»è¯‘ä¸€ä¸ªé•¿åº¦ä¸º3çš„å•è¯ï¼Œoutputå°±æ˜¯"xxx is translated into Italian as xxx."å¦‚æœè®©å…¶ç¿»è¯‘ä¸€ä¸ªé•¿åº¦ä¸º4çš„ä»£ç ï¼Œoutputåªæœ‰ç¿»è¯‘ç»“æœï¼Œå› ä¸ºexamplesä¸­åˆ—å‡ºäº†é•¿åº¦ä¸åŒåº”å¦‚ä½•å›å¤çš„ç¤ºä¾‹
+ÏÂÃæÕâ¶Î´úÂëÖĞ£¬ ÈôÈÃÆä·­ÒëÒ»¸ö³¤¶ÈÎª3µÄµ¥´Ê£¬output¾ÍÊÇ"xxx is translated into Italian as xxx."Èç¹ûÈÃÆä·­ÒëÒ»¸ö³¤¶ÈÎª4µÄ´úÂë£¬outputÖ»ÓĞ·­Òë½á¹û£¬ÒòÎªexamplesÖĞÁĞ³öÁË³¤¶È²»Í¬Ó¦ÈçºÎ»Ø¸´µÄÊ¾Àı
 
 ```python
 from langchain_core.example_selectors.base import BaseExampleSelector
@@ -230,7 +218,7 @@ examples = [
     {"input": "soccer", "output": "calcio"},
 ]
 
-# è‡ªå®šä¹‰æ¨¡æ¿é€‰æ‹©å™¨ï¼šé€‰æ‹©ä¸è¾“å…¥å­—ç¬¦ä¸²é•¿åº¦ç›¸è¿‘çš„ç¤ºä¾‹
+# ×Ô¶¨ÒåÄ£°åÑ¡ÔñÆ÷£ºÑ¡ÔñÓëÊäÈë×Ö·û´®³¤¶ÈÏà½üµÄÊ¾Àı
 class CustomExampleSelector(BaseExampleSelector):
     def __init__(self, examples):
         self.examples = examples
@@ -239,20 +227,20 @@ class CustomExampleSelector(BaseExampleSelector):
         self.examples.append(example)
 
     def select_examples(self, input_variables):
-        # è¾“å…¥çš„å…ƒç´ æ˜¯ä¸€ä¸ªå­—å…¸ï¼Œé”®ä¸ºinputï¼Œvalueå­˜åœ¨new_wordé‡Œ
+        # ÊäÈëµÄÔªËØÊÇÒ»¸ö×Öµä£¬¼üÎªinput£¬value´æÔÚnew_wordÀï
         new_word = input_variables["input"]
         new_word_length = len(new_word)
 
-        # åˆå§‹åŒ–ä¸€ä¸ªå˜é‡å­˜å‚¨æœ€ä½³åŒ¹é…ç»“æœï¼Œå’Œé•¿åº¦å·®å€¼
+        # ³õÊ¼»¯Ò»¸ö±äÁ¿´æ´¢×î¼ÑÆ¥Åä½á¹û£¬ºÍ³¤¶È²îÖµ
         best_match = None
         smallest_diff = float("inf")
 
-        # éå†æ¯ä¸€ä¸ªç¤ºä¾‹
+        # ±éÀúÃ¿Ò»¸öÊ¾Àı
         for example in self.examples:
-            # è®¡ç®—æ–°å•è¯çš„é•¿åº¦ä¸ç¤ºä¾‹åˆ—è¡¨å„å•è¯é•¿åº¦å·®
+            # ¼ÆËãĞÂµ¥´ÊµÄ³¤¶ÈÓëÊ¾ÀıÁĞ±í¸÷µ¥´Ê³¤¶È²î
             current_diff = abs(len(example["input"]) - new_word_length)
 
-            # é€‰æ‹©é•¿åº¦å·®æœ€å°çš„é‚£ä¸€ä¸ª
+            # Ñ¡Ôñ³¤¶È²î×îĞ¡µÄÄÇÒ»¸ö
             if current_diff < smallest_diff:
                 smallest_diff = current_diff
                 best_match = example
@@ -263,18 +251,18 @@ class CustomExampleSelector(BaseExampleSelector):
 
 example_selector: BaseExampleSelector = CustomExampleSelector(examples)
 temp1 = example_selector.select_examples({"input": "okay"})
-# temp1ä¸º[{'input': 'bye', 'output': 'arrivederci'}]
+# temp1Îª[{'input': 'bye', 'output': 'arrivederci'}]
 
 example_selector.add_example({"input": "hand", "output": "hand is translated into Italian mano"})
 temp2 = example_selector.select_examples({"input": "okay"})
-# temp2ä¸º[{'input': 'hand', 'output': 'mano'}]
+# temp2Îª[{'input': 'hand', 'output': 'mano'}]
 
 from langchain_core.prompts.few_shot import FewShotPromptTemplate
 
 example_prompt = PromptTemplate.from_template("Input: {input} -> Output: {output}")
 
-# few-shotæç¤ºæ¨¡æ¿ç›®æ ‡ï¼šæ ¹æ®è¾“å…¥åŠ¨æ€é€‰æ‹©ç¤ºä¾‹ï¼Œç„¶åå°†ç¤ºä¾‹æ ¼å¼åŒ–ä¸ºæœ€ç»ˆæç¤ºä»¥æä¾›ç»™æ¨¡å‹
-# é™¤ä¸‹æ–¹FewShotPromptTemplateï¼Œè¿˜æœ‰FewShotChatMessagePromptTemplates
+# few-shotÌáÊ¾Ä£°åÄ¿±ê£º¸ù¾İÊäÈë¶¯Ì¬Ñ¡ÔñÊ¾Àı£¬È»ºó½«Ê¾Àı¸ñÊ½»¯Îª×îÖÕÌáÊ¾ÒÔÌá¹©¸øÄ£ĞÍ
+# ³ıÏÂ·½FewShotPromptTemplate£¬»¹ÓĞFewShotChatMessagePromptTemplates
 prompt = FewShotPromptTemplate(
     example_selector=example_selector,
     example_prompt=example_prompt,
@@ -284,81 +272,81 @@ prompt = FewShotPromptTemplate(
 )
 ```
 
-### <font color=#70AD47>Output parsers è¾“å‡ºè§£æå™¨</font>
+### Output parsers Êä³ö½âÎöÆ÷
 
 [How-to guides: Output Paresers](https://python.langchain.com/v0.2/docs/how_to/#output-parsers)
 
 > [!NOTE]
 >
-> LangChainå®˜æ–¹æ–‡æ¡£æ¨èä½¿ç”¨function/toolçš„è°ƒç”¨è€Œä¸æ˜¯output parsing
+> LangChain¹Ù·½ÎÄµµÍÆ¼öÊ¹ÓÃfunction/toolµÄµ÷ÓÃ¶ø²»ÊÇoutput parsing
 
-è´Ÿè´£è·å–æ¨¡å‹è¾“å‡ºå¹¶å°†å…¶è½¬åŒ–ä¸ºæ›´é€‚åˆä¸‹æ¸¸ä»»åŠ¡çš„æ ¼å¼ã€‚LangChainæ”¯æŒçš„è¾“å‡ºè§£æåˆ—è¡¨åŒ…å«ï¼ˆæœºç¿»ï¼‰ï¼š
+¸ºÔğ»ñÈ¡Ä£ĞÍÊä³ö²¢½«Æä×ª»¯Îª¸üÊÊºÏÏÂÓÎÈÎÎñµÄ¸ñÊ½¡£LangChainÖ§³ÖµÄÊä³ö½âÎöÁĞ±í°üº¬£¨»ú·­£©£º
 
-| åç§°            | æ”¯æŒæµä¼ è¾“ | æœ‰æ ¼å¼è¯´æ˜ | è°ƒç”¨LLM | è¾“å…¥ç±»å‹       | è¾“å‡ºç±»å‹           |
+| Ãû³Æ            | Ö§³ÖÁ÷´«Êä | ÓĞ¸ñÊ½ËµÃ÷ | µ÷ÓÃLLM | ÊäÈëÀàĞÍ       | Êä³öÀàĞÍ           |
 | :---------------: | :----------: | :----------: | :-------: | :--------------: | :------------------: |
-| JSON            | âœ…          | âœ…          |         | `str`\|` Message` | JSON object     |
-| XML             | âœ…          | âœ…          |         | `str`\|`Message` | `dict`             |
-| CSV             | âœ…          | âœ…          |         | `str`\|`Message` | `list[str]`        |
-| OutputFixing    |            |            | âœ…       | `str`\|`Message` |                    |
-| RetryWithError  |            |            | âœ…       | `str`\|`Message` |                    |
-| Pydantic        |            | âœ…          |         | `str`\|`Message` | `pydantic.BaseModel` |
-| YAML            |            | âœ…          |         | `str`\|`Message` | `pydantic.BaseModel` |
-| PandasDataFrame |            | âœ…          |         | `str`\|`Message` | `dict`             |
-| Enum            |            | âœ…          |         | `str`\|`Message` | `enum`             |
-| Datetime        |            | âœ…          |         | `str`\|`Message` | `datetime.datetime` |
-| Structured      |            | âœ…          |         | `str`\|`Message` | `dict[str, str]` |
+| JSON            | ¡Ì          | ¡Ì         |         | `str`\|` Message` | JSON object     |
+| XML             | ¡Ì         | ¡Ì         |         | `str`\|`Message` | `dict`             |
+| CSV             | ¡Ì         | ¡Ì         |         | `str`\|`Message` | `list[str]`        |
+| OutputFixing    |            |            | ¡Ì      | `str`\|`Message` |                    |
+| RetryWithError  |            |            | ¡Ì      | `str`\|`Message` |                    |
+| Pydantic        |            | ¡Ì         |         | `str`\|`Message` | `pydantic.BaseModel` |
+| YAML            |            | ¡Ì         |         | `str`\|`Message` | `pydantic.BaseModel` |
+| PandasDataFrame |            | ¡Ì         |         | `str`\|`Message` | `dict`             |
+| Enum            |            | ¡Ì         |         | `str`\|`Message` | `enum`             |
+| Datetime        |            | ¡Ì         |         | `str`\|`Message` | `datetime.datetime` |
+| Structured      |            | ¡Ì         |         | `str`\|`Message` | `dict[str, str]` |
 
-**æ ‡é¢˜è¡Œå®šä¹‰**
+**±êÌâĞĞ¶¨Òå**
 
-> **åç§°**: è§£æå™¨åç§°
+> **Ãû³Æ**: ½âÎöÆ÷Ãû³Æ
 >
-> **æ”¯æŒæµå¼ä¼ è¾“**: è§£æå™¨æ˜¯å¦æ”¯æŒæµå¼ä¼ è¾“
+> **Ö§³ÖÁ÷Ê½´«Êä**: ½âÎöÆ÷ÊÇ·ñÖ§³ÖÁ÷Ê½´«Êä
 >
-> **æ ¼å¼è¯´æ˜**: è§£æå™¨æ˜¯å¦æœ‰æ ¼å¼è¯´æ˜ã€‚é€šå¸¸æƒ…å†µä¸‹æ˜¯æœ‰çš„ï¼Œé™¤é ï¼š
+> **¸ñÊ½ËµÃ÷**: ½âÎöÆ÷ÊÇ·ñÓĞ¸ñÊ½ËµÃ÷¡£Í¨³£Çé¿öÏÂÊÇÓĞµÄ£¬³ı·Ç £º
 >
->    - schemaæœªæŒ‡æ˜æç¤ºï¼Œè€Œæ˜¯åœ¨å…¶ä»–å‚æ•°ä¸­æŒ‡å®šï¼ˆå¦‚ OpenAI å‡½æ•°è°ƒç”¨ï¼‰	
+>    - schemaÎ´Ö¸Ã÷ÌáÊ¾£¬¶øÊÇÔÚÆäËû²ÎÊıÖĞÖ¸¶¨£¨Èç OpenAI º¯Êıµ÷ÓÃ£©	
 >
->    - è¾“å‡ºè§£æå™¨åŒ…è£…äº†å¦ä¸€ä¸ªè¾“å‡ºè§£æå™¨
+>    - Êä³ö½âÎöÆ÷°ü×°ÁËÁíÒ»¸öÊä³ö½âÎöÆ÷
 >
-> **è°ƒç”¨LLM**: è§£æå™¨æœ¬èº«æ˜¯å¦è°ƒç”¨LLMï¼ˆä¸€èˆ¬åªæœ‰é‚£äº›å°è¯•çº æ­£æ ¼å¼é”™è¯¯è¾“å‡ºçš„è¾“å‡ºè§£æå™¨æ‰ä¼šè¿™æ ·åšï¼‰
+> **µ÷ÓÃLLM**: ½âÎöÆ÷±¾ÉíÊÇ·ñµ÷ÓÃLLM£¨Ò»°ãÖ»ÓĞÄÇĞ©³¢ÊÔ¾ÀÕı¸ñÊ½´íÎóÊä³öµÄÊä³ö½âÎöÆ÷²Å»áÕâÑù×ö£©
 >
-> **è¾“å…¥ç±»å‹**: é¢„æœŸçš„è¾“å…¥ç±»å‹ã€‚å¤§å¤šæ•°ä¸ºstrå’ŒMessageï¼Œä½†æœ‰äº›ï¼ˆå¦‚ OpenAI å‡½æ•°ï¼‰éœ€è¦å¸¦æœ‰ç‰¹å®š kwargs çš„æ¶ˆæ¯
+> **ÊäÈëÀàĞÍ**: Ô¤ÆÚµÄÊäÈëÀàĞÍ¡£´ó¶àÊıÎªstrºÍMessage£¬µ«ÓĞĞ©£¨Èç OpenAI º¯Êı£©ĞèÒª´øÓĞÌØ¶¨ kwargs µÄÏûÏ¢
 >
-> **è¾“å‡ºç±»å‹**: è§£æå™¨è¿”å›çš„å¯¹è±¡çš„è¾“å‡ºç±»å‹
+> **Êä³öÀàĞÍ**: ½âÎöÆ÷·µ»ØµÄ¶ÔÏóµÄÊä³öÀàĞÍ
 
-å„è§£æå™¨è¯„ä»·åŠé€‚ç”¨åœºæ™¯ï¼ˆæ²¡æœ‰åœºæ™¯é€‚ç”¨å°±æ˜¯å®˜æ–¹æ–‡æ¡£ä¸Šæœªæ ‡å‡ºï¼‰
+¸÷½âÎöÆ÷ÆÀ¼Û¼°ÊÊÓÃ³¡¾°£¨Ã»ÓĞ³¡¾°ÊÊÓÃ¾ÍÊÇ¹Ù·½ÎÄµµÉÏÎ´±ê³ö£©
 
-|      åç§°       | æè¿°                                                         |
+|      Ãû³Æ       | ÃèÊö                                                         |
 | :-------------: | ------------------------------------------------------------ |
-|      JSON       | è¿”å›æŒ‡å®šçš„JSONå¯¹è±¡ã€‚å¯æŒ‡å®šä¸€ä¸ªPydanticæ¨¡å‹ï¼Œå®ƒå°†è¿”å›è¯¥æ¨¡å‹çš„JSON<br />å¯èƒ½æ˜¯è·å–ç»“æ„åŒ–æ•°æ®æœ€å¯é çš„è¾“å‡ºè§£æå™¨ï¼Œä¸ä½¿ç”¨å‡½æ•°è°ƒç”¨ |
-|       XML       | è¿”å›æ ‡ç­¾å­—å…¸ï¼Œå½“éœ€è¦XMLè¾“å‡ºæ—¶ä½¿ç”¨<br />é€‚ç”¨äºæ“…é•¿ç¼–å†™XMLçš„æ¨¡å‹ |
-|       CSV       | è¿”å›ä¸€ä¸ªé€—å·åˆ†éš”å€¼çš„åˆ—è¡¨                                     |
-|  OutputFixing   | åŒ…è£…å¦ä¸€ä¸ªè¾“å‡ºè§£æå™¨ã€‚å¦‚æœè¯¥è¾“å‡ºè§£æå™¨å‡ºé”™ï¼Œåˆ™ä¼šå°†é”™è¯¯æ¶ˆæ¯å’Œé”™è¯¯è¾“å‡ºä¼ é€’ç»™LLMï¼Œå¹¶è¦æ±‚å…¶ä¿®å¤è¾“å‡ºã€‚ |
-| RetryWithError  | åŒ…è£…å¦ä¸€ä¸ªè¾“å‡ºè§£æå™¨ã€‚å¦‚æœè¯¥è¾“å‡ºè§£æå™¨å‡ºé”™ï¼Œåˆ™ä¼šå°†åŸå§‹è¾“å…¥ã€é”™è¯¯è¾“å‡ºå’Œé”™è¯¯æ¶ˆæ¯ä¼ é€’ç»™LLMï¼Œå¹¶è¦æ±‚å…¶ä¿®å¤ã€‚ä¸OutputFixingParserç›¸æ¯”ï¼Œè¯¥è§£æå™¨è¿˜ä¼šå‘é€åŸå§‹æŒ‡ä»¤ |
-|    Pydantic     | æ¥å—ç”¨æˆ·å®šä¹‰çš„Pydanticæ¨¡å‹ï¼Œå¹¶ä»¥è¯¥æ ¼å¼è¿”å›æ•°æ®               |
-|      YAML       | æ¥å—ç”¨æˆ·å®šä¹‰çš„Pydanticæ¨¡å‹ï¼Œå¹¶ä»¥è¯¥æ ¼å¼è¿”å›æ•°æ®ã€‚ä½¿ç”¨YAMLè¿›è¡Œç¼–ç  |
-| PandasDataFrame | é€‚ç”¨äºä½¿ç”¨pandas DataFrameè¿›è¡Œæ“ä½œ                           |
-|      Enum       | å°†å“åº”è§£æä¸ºæä¾›çš„æšä¸¾å€¼ä¹‹ä¸€                                 |
-|    Datetime     | å°†å“åº”è§£æä¸ºdatetimeå­—ç¬¦ä¸²                                   |
-|   Structured    | è¿”å›ç»“æ„åŒ–ä¿¡æ¯çš„è¾“å‡ºè§£æå™¨ã€‚ç”±äºå®ƒåªå…è®¸å­—æ®µä¸ºå­—ç¬¦ä¸²ï¼Œå› æ­¤å®ƒä¸å¦‚å…¶ä»–è¾“å‡ºè§£æå™¨å¼ºå¤§ã€‚<br />å¯ä»¥åœ¨ä½¿ç”¨è¾ƒå°LLMçš„åœºæ™¯ä½¿ç”¨ |
+|      JSON       | ·µ»ØÖ¸¶¨µÄJSON¶ÔÏó¡£¿ÉÖ¸¶¨Ò»¸öPydanticÄ£ĞÍ£¬Ëü½«·µ»Ø¸ÃÄ£ĞÍµÄJSON<br />¿ÉÄÜÊÇ»ñÈ¡½á¹¹»¯Êı¾İ×î¿É¿¿µÄÊä³ö½âÎöÆ÷£¬²»Ê¹ÓÃº¯Êıµ÷ÓÃ |
+|       XML       | ·µ»Ø±êÇ©×Öµä£¬µ±ĞèÒªXMLÊä³öÊ±Ê¹ÓÃ<br />ÊÊÓÃÓÚÉÃ³¤±àĞ´XMLµÄÄ£ĞÍ |
+|       CSV       | ·µ»ØÒ»¸ö¶ººÅ·Ö¸ôÖµµÄÁĞ±í                                     |
+|  OutputFixing   | °ü×°ÁíÒ»¸öÊä³ö½âÎöÆ÷¡£Èç¹û¸ÃÊä³ö½âÎöÆ÷³ö´í£¬Ôò»á½«´íÎóÏûÏ¢ºÍ´íÎóÊä³ö´«µİ¸øLLM£¬²¢ÒªÇóÆäĞŞ¸´Êä³ö¡£ |
+| RetryWithError  | °ü×°ÁíÒ»¸öÊä³ö½âÎöÆ÷¡£Èç¹û¸ÃÊä³ö½âÎöÆ÷³ö´í£¬Ôò»á½«Ô­Ê¼ÊäÈë¡¢´íÎóÊä³öºÍ´íÎóÏûÏ¢´«µİ¸øLLM£¬²¢ÒªÇóÆäĞŞ¸´¡£ÓëOutputFixingParserÏà±È£¬¸Ã½âÎöÆ÷»¹»á·¢ËÍÔ­Ê¼Ö¸Áî |
+|    Pydantic     | ½ÓÊÜÓÃ»§¶¨ÒåµÄPydanticÄ£ĞÍ£¬²¢ÒÔ¸Ã¸ñÊ½·µ»ØÊı¾İ               |
+|      YAML       | ½ÓÊÜÓÃ»§¶¨ÒåµÄPydanticÄ£ĞÍ£¬²¢ÒÔ¸Ã¸ñÊ½·µ»ØÊı¾İ¡£Ê¹ÓÃYAML½øĞĞ±àÂë |
+| PandasDataFrame | ÊÊÓÃÓÚÊ¹ÓÃpandas DataFrame½øĞĞ²Ù×÷                           |
+|      Enum       | ½«ÏìÓ¦½âÎöÎªÌá¹©µÄÃ¶¾ÙÖµÖ®Ò»                                 |
+|    Datetime     | ½«ÏìÓ¦½âÎöÎªdatetime×Ö·û´®                                   |
+|   Structured    | ·µ»Ø½á¹¹»¯ĞÅÏ¢µÄÊä³ö½âÎöÆ÷¡£ÓÉÓÚËüÖ»ÔÊĞí×Ö¶ÎÎª×Ö·û´®£¬Òò´ËËü²»ÈçÆäËûÊä³ö½âÎöÆ÷Ç¿´ó¡£<br />¿ÉÒÔÔÚÊ¹ÓÃ½ÏĞ¡LLMµÄ³¡¾°Ê¹ÓÃ |
 
-### <font color=#70AD47>Chat history èŠå¤©å†å²</font>
+### Chat history ÁÄÌìÀúÊ·
 
-LangChainä¸­çš„ä¸€ä¸ªç±»ï¼Œå¯ä»¥æ¥åŒ…è£…ä»»æ„é“¾ã€‚ChatHistoryå°†è·Ÿè¸ªåº•å±‚é“¾çš„è¾“å…¥å’Œè¾“å‡ºï¼Œå¹¶å°†å®ƒä»¬ä½œä¸ºæ¶ˆæ¯é™„åŠ åˆ°æ¶ˆæ¯æ•°æ®åº“ä¸­ã€‚
-### <font color=#70AD47>Document æ–‡ä»¶</font>
+LangChainÖĞµÄÒ»¸öÀà£¬¿ÉÒÔÀ´°ü×°ÈÎÒâÁ´¡£ChatHistory½«¸ú×Ùµ×²ãÁ´µÄÊäÈëºÍÊä³ö£¬²¢½«ËüÃÇ×÷ÎªÏûÏ¢¸½¼Óµ½ÏûÏ¢Êı¾İ¿âÖĞ¡£
+### Document ÎÄ¼ş
 
-ä½¿ç”¨DocumentLoaderè¯»å–åˆ°æ•°æ®æºåï¼Œéœ€è¦è½¬æ¢ä¸ºDocumentå¯¹è±¡ä¹‹åæ‰èƒ½ä½¿ç”¨
+Ê¹ÓÃDocumentLoader¶ÁÈ¡µ½Êı¾İÔ´ºó£¬ĞèÒª×ª»»ÎªDocument¶ÔÏóÖ®ºó²ÅÄÜÊ¹ÓÃ
 
-Documentç±»æœ‰ä¸¤ä¸ªå±æ€§
+DocumentÀàÓĞÁ½¸öÊôĞÔ
 
-- `page_content: str`ï¼šæ–‡ä»¶å†…å®¹ï¼Œé€šå¸¸åªæ˜¯ä¸€ä¸ªå­—ç¬¦ä¸²
-- `matadata: dict`ï¼šä¸æ–‡ä»¶ç›¸å…³çš„ä»»æ„å…ƒæ•°æ®ï¼Œèƒ½è¿½è¸ªåˆ°æ–‡ä»¶idï¼Œæ–‡ä»¶å†…å®¹ç­‰
+- `page_content: str`£ºÎÄ¼şÄÚÈİ£¬Í¨³£Ö»ÊÇÒ»¸ö×Ö·û´®
+- `matadata: dict`£ºÓëÎÄ¼şÏà¹ØµÄÈÎÒâÔªÊı¾İ£¬ÄÜ×·×Ùµ½ÎÄ¼şid£¬ÎÄ¼şÄÚÈİµÈ
 
-### <font color=#70AD47>Document loaders æ–‡ä»¶åŠ è½½å™¨</font>
+### Document loaders ÎÄ¼ş¼ÓÔØÆ÷
 
 [How-to guides: Document loaders](https://python.langchain.com/v0.2/docs/how_to/#document-loaders)
 
-ä»æŒ‡å®šæºè¿›è¡ŒåŠ è½½æ•°æ®
+´ÓÖ¸¶¨Ô´½øĞĞ¼ÓÔØÊı¾İ
 
 ```python
 from langchain_community.document_loaders.csv_loader import CSVLoader
@@ -366,187 +354,238 @@ from langchain_community.document_loaders.csv_loader import CSVLoader
 file_path = ("test.csv")
 
 loader = CSVLoader(file_path=file_path)
-# dataç±»å‹ï¼šlist[Document]
+# dataÀàĞÍ£ºlist[Document]
 data = loader.load()
 ```
 
-### <font color=#70AD47>Text splitters æ–‡æœ¬æ‹†åˆ†å™¨</font>
+### Text splitters ÎÄ±¾²ğ·ÖÆ÷
 
 [How-to guides: Text splitters](https://python.langchain.com/v0.2/docs/how_to/#text-splitters)
 
-åŸå› ï¼šå‘é€ç»™æ¨¡å‹çš„æ–‡æœ¬æœ‰å­—ç¬¦é™åˆ¶ï¼ˆè¶…è¿‡æœ€å¤§tokenï¼‰
+Ô­Òò£º·¢ËÍ¸øÄ£ĞÍµÄÎÄ±¾ÓĞ×Ö·ûÏŞÖÆ£¨³¬¹ı×î´ótoken£©
 
-æœŸæœ›ï¼š**è¯­ä¹‰ç›¸å…³**æ–‡æœ¬ç‰‡æ®µæ”¾åœ¨ä¸€èµ·
+ÆÚÍû£º**ÓïÒåÏà¹Ø**ÎÄ±¾Æ¬¶Î·ÅÔÚÒ»Æğ
 
-Text splitterså·¥ä½œæ–¹å¼ï¼š
+Text splitters¹¤×÷·½Ê½£º
 
-> 1. æ–‡æœ¬æ‹†åˆ†ä¸ºè¯­ä¹‰ä¸Šæœ‰æ„ä¹‰çš„å°å—ï¼ˆé€šå¸¸ä¸ºå¥å­ï¼‰
-> 2. å°å—ç»„æˆå¤§å—ï¼Œç›´åˆ°è¾¾åˆ°ä¸€å®šçš„å¤§å°ï¼ˆç”±æŸäº›å‡½æ•°æµ‹é‡ï¼‰
-> 3. è¾¾åˆ°è¯¥å¤§å°æ—¶ï¼Œå°†è¯¥å—è®¾ä¸ºè‡ªå·±çš„æ–‡æœ¬æ®µï¼Œåœ¨åˆ›å»ºä¸€ä¸ªå…·æœ‰ä¸€äº›é‡å çš„æ–°æ–‡æœ¬å—ï¼ˆä¿æŒå—ä¹‹é—´çš„ä¸Šä¸‹æ–‡ï¼‰
+> 1. ÎÄ±¾²ğ·ÖÎªÓïÒåÉÏÓĞÒâÒåµÄĞ¡¿é£¨Í¨³£Îª¾ä×Ó£©
+> 2. Ğ¡¿é×é³É´ó¿é£¬Ö±µ½´ïµ½Ò»¶¨µÄ´óĞ¡£¨ÓÉÄ³Ğ©º¯Êı²âÁ¿£©
+> 3. ´ïµ½¸Ã´óĞ¡Ê±£¬½«¸Ã¿éÉèÎª×Ô¼ºµÄÎÄ±¾¶Î£¬ÔÚ´´½¨Ò»¸ö¾ßÓĞÒ»Ğ©ÖØµşµÄĞÂÎÄ±¾¿é£¨±£³Ö¿éÖ®¼äµÄÉÏÏÂÎÄ£©
 
-Text splitterå·¥ä½œæ–¹å¼è¯´æ˜æ‹†åˆ†è¿‡ç¨‹æœ‰ä¸¤ä¸ªç»´åº¦
+Text splitter¹¤×÷·½Ê½ËµÃ÷²ğ·Ö¹ı³ÌÓĞÁ½¸öÎ¬¶È
 
-> 1. æ–‡æœ¬å¦‚ä½•åˆ†å‰²
-> 2. å¦‚ä½•æµ‹é‡å—å¤§å°
+> 1. ÎÄ±¾ÈçºÎ·Ö¸î
+> 2. ÈçºÎ²âÁ¿¿é´óĞ¡
 
-å¯ä»¥æ ¹æ®è¿™ä¸¤ä¸ªç»´åº¦è‡ªå®šä¹‰Text splitters
+¿ÉÒÔ¸ù¾İÕâÁ½¸öÎ¬¶È×Ô¶¨ÒåText splitters
 
 ```python
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 
-# åŠ è½½æµ‹è¯•æ–‡ä»¶
+# ¼ÓÔØ²âÊÔÎÄ¼ş
 with open("test.txt", 'r', encoding='utf-8') as f:
     state_of_the_union = f.read()
 
 text_splitter = RecursiveCharacterTextSplitter(
-    chunk_size=100,  # åˆ†å—æœ€å¤§å°ºå¯¸ï¼Œç”±length_functionå†³å®š
-    chunk_overlap=20,  # å—é—´é‡å ã€‚é‡å åˆ†å—æœ‰åŠ©äºå‡å°‘ä¿¡æ¯ä¸¢å¤±
-    length_function=len,  # å†³å®šåˆ†å—å¤§å°çš„å‡½æ•°
-    is_separator_regex=False,  # åˆ†éš”ç¬¦åˆ—è¡¨ï¼ˆé»˜è®¤ä¸º["\n\n","\n"," ",""]ï¼‰æ˜¯å¦åº”è¯¥è§£é‡Šä¸ºregex
+    chunk_size=100,  # ·Ö¿é×î´ó³ß´ç£¬ÓÉlength_function¾ö¶¨
+    chunk_overlap=20,  # ¿é¼äÖØµş¡£ÖØµş·Ö¿éÓĞÖúÓÚ¼õÉÙĞÅÏ¢¶ªÊ§
+    length_function=len,  # ¾ö¶¨·Ö¿é´óĞ¡µÄº¯Êı
+    is_separator_regex=False,  # ·Ö¸ô·ûÁĞ±í£¨Ä¬ÈÏÎª["\n\n","\n"," ",""]£©ÊÇ·ñÓ¦¸Ã½âÊÍÎªregex
 )
 texts = text_splitter.create_documents([state_of_the_union])
 print(texts[0])
 print(texts[1])
 ```
 
-> `page_content`='åˆ†å¸ƒå¼èº«ä»½ç³»ç»Ÿä¸åŒäºéƒ¨åˆ†å»ä¸­å¿ƒåŒ–æ•°å­—è´§å¸ç³»ç»Ÿï¼Œåœ¨åˆ†å¸ƒå¼èº«ä»½ç³»ç»Ÿä¸­ä¸ä»…éœ€è¦è€ƒè™‘èº«ä»½ä¿¡æ¯çš„éšç§æ€§è¿˜éœ€è¦è€ƒè™‘ç”¨æˆ·æˆæƒå¯æº¯æºå®¡è®¡ã€‚ç”±äºåˆ†å¸ƒå¼èº«ä»½å¼±åŒ–ç¬¬ä¸‰æ–¹å‚ä¸çš„ç‰¹ç‚¹ï¼Œæ²¡æœ‰ç¬¬ä¸‰æ–¹æœºæ„èƒ½å¤Ÿç›´æ¥æŒæ¡ç”¨æˆ·å®Œæ•´çš„èº«ä»½æˆ'
+> `page_content`='·Ö²¼Ê½Éí·İÏµÍ³²»Í¬ÓÚ²¿·ÖÈ¥ÖĞĞÄ»¯Êı×Ö»õ±ÒÏµÍ³£¬ÔÚ·Ö²¼Ê½Éí·İÏµÍ³ÖĞ²»½öĞèÒª¿¼ÂÇÉí·İĞÅÏ¢µÄÒşË½ĞÔ»¹ĞèÒª¿¼ÂÇÓÃ»§ÊÚÈ¨¿ÉËİÔ´Éó¼Æ¡£ÓÉÓÚ·Ö²¼Ê½Éí·İÈõ»¯µÚÈı·½²ÎÓëµÄÌØµã£¬Ã»ÓĞµÚÈı·½»ú¹¹ÄÜ¹»Ö±½ÓÕÆÎÕÓÃ»§ÍêÕûµÄÉí·İÊÚ'
 >
 > 
 >
-> `page_content`='æœ‰ç¬¬ä¸‰æ–¹æœºæ„èƒ½å¤Ÿç›´æ¥æŒæ¡ç”¨æˆ·å®Œæ•´çš„èº«ä»½æˆæƒè®°å½•ï¼Œè¿™ä¿æŠ¤äº†ç”¨æˆ·çš„èº«ä»½éšç§ï¼Œä½†æ˜¯ä¹Ÿå¯¼è‡´äº†æº¯æºç»“æœæ²¡æœ‰ç¬¬ä¸‰æ–¹æœºæ„èƒŒä¹¦ï¼Œå› æ­¤éœ€è¦æ–°çš„æŠ€æœ¯æ–¹æ³•æ¥ä¿è¯æº¯æºç»“æœå¯ä¿¡ä¸”ä»…å¯ä»¥è¢«å…·æœ‰ç‰¹å®šæƒé™çš„å®ä½“è®¿é—®ã€‚æ­¤å¤–ï¼Œç”±äºåˆ†å¸ƒå¼'
+> `page_content`='ÓĞµÚÈı·½»ú¹¹ÄÜ¹»Ö±½ÓÕÆÎÕÓÃ»§ÍêÕûµÄÉí·İÊÚÈ¨¼ÇÂ¼£¬Õâ±£»¤ÁËÓÃ»§µÄÉí·İÒşË½£¬µ«ÊÇÒ²µ¼ÖÂÁËËİÔ´½á¹ûÃ»ÓĞµÚÈı·½»ú¹¹±³Êé£¬Òò´ËĞèÒªĞÂµÄ¼¼Êõ·½·¨À´±£Ö¤ËİÔ´½á¹û¿ÉĞÅÇÒ½ö¿ÉÒÔ±»¾ßÓĞÌØ¶¨È¨ÏŞµÄÊµÌå·ÃÎÊ¡£´ËÍâ£¬ÓÉÓÚ·Ö²¼Ê½'
 
 ---
 
-### <font color=#70AD47>Embedding models åµŒå…¥æ¨¡å‹ï¼ˆé˜¿é‡Œäº‘æ–‡æ¡£ï¼‰</font>
+### Embedding models Ç¶ÈëÄ£ĞÍ£¨°¢ÀïÔÆÎÄµµ£©
 
-[åŸºäºå‘é‡æ£€ç´¢æœåŠ¡ä¸TextEmbeddingå®ç°è¯­ä¹‰æœç´¢](https://help.aliyun.com/zh/dashscope/implementation-of-semantic-search-based-on-vector-retrieval-service-and-textembedding?spm=a2c4g.11186623.0.0.50101d61gyL4ye)
+[»ùÓÚÏòÁ¿¼ìË÷·şÎñÓëTextEmbeddingÊµÏÖÓïÒåËÑË÷](https://help.aliyun.com/zh/dashscope/implementation-of-semantic-search-based-on-vector-retrieval-service-and-textembedding?spm=a2c4g.11186623.0.0.50101d61gyL4ye)
 
-ä»¥DashScopeä¸Š[é€šç”¨æ–‡æœ¬å‘é‡](https://help.aliyun.com/zh/dashscope/developer-reference/text-embedding-quick-start)æ¨¡å‹ä¸ºä¾‹ï¼Œé€šè¿‡è¾“å…¥ä¸€æ®µæ–‡æœ¬ï¼Œ[é€šç”¨æ–‡æœ¬å‘é‡](https://help.aliyun.com/zh/dashscope/developer-reference/text-embedding-quick-start)æ¨¡å‹ä¼šå°†è¿™æ®µæ–‡æœ¬å˜æˆä¸€ä¸ªå‘é‡ï¼Œå°†**æ–‡æœ¬å˜æˆå‘é‡**çš„è¿‡ç¨‹å« `Embedding`
+ÒÔDashScopeÉÏ[Í¨ÓÃÎÄ±¾ÏòÁ¿](https://help.aliyun.com/zh/dashscope/developer-reference/text-embedding-quick-start)Ä£ĞÍÎªÀı£¬Í¨¹ıÊäÈëÒ»¶ÎÎÄ±¾£¬[Í¨ÓÃÎÄ±¾ÏòÁ¿](https://help.aliyun.com/zh/dashscope/developer-reference/text-embedding-quick-start)Ä£ĞÍ»á½«Õâ¶ÎÎÄ±¾±ä³ÉÒ»¸öÏòÁ¿£¬½«**ÎÄ±¾±ä³ÉÏòÁ¿**µÄ¹ı³Ì½Ğ `Embedding`
 
-![embeddingæµç¨‹](img/embeddingæµç¨‹.png)
+<center>
+    <img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+    src="img/embeddingÁ÷³Ì.png">
+    <br>
+    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 2px;">embeddingÁ÷³Ì</div>
+</center>
 
-- **Embedding**ï¼šé€šè¿‡DashScopeæä¾›çš„é€šç”¨æ–‡æœ¬å‘é‡æ¨¡å‹ï¼Œå¯¹è¯­æ–™åº“ä¸­æ‰€æœ‰æ ‡é¢˜ç”Ÿæˆçš„å¯¹åº”çš„embeddingå‘é‡
-- **æ„å»ºç´¢å¼•æœåŠ¡å’ŒæŸ¥è¯¢**
-  - é€šè¿‡DashVectorå‘é‡æ£€ç´¢æœåŠ¡å¯¹ç”Ÿæˆçš„embeddingå‘é‡æ„å»ºç´¢å¼•
-  - å°†æŸ¥è¯¢æ–‡æœ¬embeddingå‘é‡ä½œä¸ºè¾“å…¥ï¼Œé€šè¿‡DashVectoræœç´¢ç›¸ä¼¼çš„æ ‡é¢˜
+
+
+- **Embedding**£ºÍ¨¹ıDashScopeÌá¹©µÄÍ¨ÓÃÎÄ±¾ÏòÁ¿Ä£ĞÍ£¬¶ÔÓïÁÏ¿âÖĞËùÓĞ±êÌâÉú³ÉµÄ¶ÔÓ¦µÄembeddingÏòÁ¿
+- **¹¹½¨Ë÷Òı·şÎñºÍ²éÑ¯**
+  - Í¨¹ıDashVectorÏòÁ¿¼ìË÷·şÎñ¶ÔÉú³ÉµÄembeddingÏòÁ¿¹¹½¨Ë÷Òı
+  - ½«²éÑ¯ÎÄ±¾embeddingÏòÁ¿×÷ÎªÊäÈë£¬Í¨¹ıDashVectorËÑË÷ÏàËÆµÄ±êÌâ
 
 ```python
 from dashscope import TextEmbedding
 
-# éœ€è¦è·å–è·å–DASHSCOPE_API_KEY
+# ĞèÒª»ñÈ¡»ñÈ¡DASHSCOPE_API_KEY
 def generate_embeddings(text):
     rsp = TextEmbedding.call(model=TextEmbedding.Models.text_embedding_v1, input=text)
 
     embeddings = [record['embedding'] for record in rsp.output['embeddings']]
     return embeddings if isinstance(text, list) else embeddings[0]
 
-# æŠŠhelloå­—ç¬¦ä¸²æ¢ä¸ºç»´åº¦ä¸º1536çš„å‘é‡ï¼ˆembeddingå‘é‡ç»´æ•°ä¸º1536ï¼‰
+# °Ñhello×Ö·û´®»»ÎªÎ¬¶ÈÎª1536µÄÏòÁ¿£¨embeddingÏòÁ¿Î¬ÊıÎª1536£©
 print(len(generate_embeddings('hello')))
 ```
 
-### <font color=#70AD47>é€šè¿‡DashVectoræ„å»ºæ£€ç´¢ï¼šå‘é‡å…¥åº“</font>
+### Í¨¹ıDashVector¹¹½¨¼ìË÷£ºÏòÁ¿Èë¿â
 
-DashVectorå‘é‡æ£€ç´¢æœåŠ¡ä¸Šçš„æ•°æ®ä»¥é›†åˆï¼ˆCollectionï¼‰ä¸ºå•ä½å­˜å‚¨ï¼Œå†™å…¥å‘é‡å‰åº”å…ˆåˆ›å»ºä¸€ä¸ªé›†åˆæ¥ç®¡ç†æ•°æ®é›†ï¼Œåˆ›å»ºæ•°æ®é›†çš„æ—¶å€™éœ€è¦æŒ‡å®šå‘é‡ä¸ºåº¦ï¼Œå› ä¸ºembeddingsçš„äº§ç”Ÿç”¨çš„æ¨¡å‹æ˜¯`model=TextEmbedding.Models.text_embedding_v1`ï¼Œæ‰€ä»¥ç»´åº¦ä¸ºç»Ÿä¸€å‡ä¸º1536
-
-
-
-### <font color=#70AD47>Vector stores å‘é‡å­˜å‚¨</font>
-
-[DashVector x é€šä¹‰åƒé—®å¤§æ¨¡å‹ï¼šæ‰“é€ åŸºäºä¸“å±çŸ¥è¯†çš„é—®ç­”æœåŠ¡](img)
-
-ä¸‹å›¾æ˜¯åŸºäºä¸­æ–‡çªå‘äº‹ä»¶è¯­æ–™åº“ï¼ˆCEC Corpusï¼‰æ¼”ç¤ºå…³äºçªå‘æ—¶é—´æ–°é—»æŠ¥é“çš„çŸ¥è¯†é—®ç­”
-
-![embeddingæµç¨‹](img/ä¸“å±çŸ¥è¯†ç­‰é—®ç­”æœåŠ¡.png)
-
-ä¸»è¦åˆ†ä¸ºä¸‰ä¸ªé˜¶æ®µ
-
-1. **æœ¬åœ°çŸ¥è¯†åº“çš„å‘é‡åŒ–ã€‚**é€šè¿‡æ–‡æœ¬å‘é‡æ¨¡å‹å°†å…¶è½¬åŒ–ä¸ºé«˜è´¨é‡ä½çº¬åº¦çš„å‘é‡æ•°æ®ï¼Œå†å†™å…¥DashVectorå‘é‡æ£€ç´¢æœåŠ¡ã€‚ï¼ˆæ•°æ®å‘é‡åŒ–ä½¿ç”¨DashScopeä¸Šçš„EmbeddingAPIå®ç°ï¼‰
-2. **ç›¸å…³çŸ¥è¯†ç‚¹çš„æå–ã€‚**å°†æé—®æ–‡æœ¬å‘é‡åŒ–åï¼Œé€šè¿‡DashVectoræå–ç›¸å…³çŸ¥è¯†ç‚¹çš„åŸæ–‡
-3. **æ„é€ Promptè¿›è¡Œæé—®ã€‚**å°†ç›¸å…³çŸ¥è¯†ç‚¹ä½œä¸ºâ€é™å®šä¸Šä¸‹æ–‡+æé—®â€œä¸€èµ·ä½œä¸ºpromptè¯¢é—®é€šä¹‰åƒé—®
-
-### <font color=#70AD47>Retrievers æ£€ç´¢å™¨</font>
+DashVectorÏòÁ¿¼ìË÷·şÎñÉÏµÄÊı¾İÒÔ¼¯ºÏ£¨Collection£©Îªµ¥Î»´æ´¢£¬Ğ´ÈëÏòÁ¿Ç°Ó¦ÏÈ´´½¨Ò»¸ö¼¯ºÏÀ´¹ÜÀíÊı¾İ¼¯£¬´´½¨Êı¾İ¼¯µÄÊ±ºòĞèÒªÖ¸¶¨ÏòÁ¿Îª¶È£¬ÒòÎªembeddingsµÄ²úÉúÓÃµÄÄ£ĞÍÊÇ`model=TextEmbedding.Models.text_embedding_v1`£¬ËùÒÔÎ¬¶ÈÎªÍ³Ò»¾ùÎª1536
 
 
 
-## <font color=#ED7D31>å‡†å¤‡å·¥ä½œ</font>
+### Vector stores ÏòÁ¿´æ´¢
 
-###  <font color=#70AD47>é€šä¹‰</font>
+[DashVector x Í¨ÒåÇ§ÎÊ´óÄ£ĞÍ£º´òÔì»ùÓÚ×¨ÊôÖªÊ¶µÄÎÊ´ğ·şÎñ](img)
+
+ÏÂÍ¼ÊÇ»ùÓÚÖĞÎÄÍ»·¢ÊÂ¼şÓïÁÏ¿â£¨CEC Corpus£©ÑİÊ¾¹ØÓÚÍ»·¢Ê±¼äĞÂÎÅ±¨µÀµÄÖªÊ¶ÎÊ´ğ
+
+<center>
+    <img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+    src="img/×¨ÊôÖªÊ¶µÈÎÊ´ğ·şÎñ.png">
+    <br>
+    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 2px;">×¨ÊôÖªÊ¶µÈÎÊ´ğ·şÎñ</div>
+</center>
+
+Ö÷Òª·ÖÎªÈı¸ö½×¶Î
+
+1. **±¾µØÖªÊ¶¿âµÄÏòÁ¿»¯¡£**Í¨¹ıÎÄ±¾ÏòÁ¿Ä£ĞÍ½«Æä×ª»¯Îª¸ßÖÊÁ¿µÍÎ³¶ÈµÄÏòÁ¿Êı¾İ£¬ÔÙĞ´ÈëDashVectorÏòÁ¿¼ìË÷·şÎñ¡££¨Êı¾İÏòÁ¿»¯Ê¹ÓÃDashScopeÉÏµÄEmbeddingAPIÊµÏÖ£©
+2. **Ïà¹ØÖªÊ¶µãµÄÌáÈ¡¡£**½«ÌáÎÊÎÄ±¾ÏòÁ¿»¯ºó£¬Í¨¹ıDashVectorÌáÈ¡Ïà¹ØÖªÊ¶µãµÄÔ­ÎÄ
+3. **¹¹ÔìPrompt½øĞĞÌáÎÊ¡£**½«Ïà¹ØÖªÊ¶µã×÷Îª¡±ÏŞ¶¨ÉÏÏÂÎÄ+ÌáÎÊ¡°Ò»Æğ×÷ÎªpromptÑ¯ÎÊÍ¨ÒåÇ§ÎÊ
+
+### Retrievers ¼ìË÷Æ÷
+
+
+
+## ×¼±¸¹¤×÷
+
+###  Í¨Òå
 
 ```bash
-pip3 install langchain #å®‰è£…langchainç¯å¢ƒ
-pip3 install langchain-community #å®‰è£…ç¬¬ä¸‰æ–¹é›†æˆ,å°±æ˜¯å„ç§å¤§è¯­è¨€æ¨¡å‹
-pip3 install python-dotenv #åŠ è½½å·¥å…·
-pip3Â installÂ dashscope #çµç§¯æ¨¡å‹æœåŠ¡
-pip3 install dashvector #çµç§¯å‘é‡æ£€ç´¢æœåŠ¡
+pip3 install langchain #°²×°langchain»·¾³
+pip3 install langchain-community #°²×°µÚÈı·½¼¯³É,¾ÍÊÇ¸÷ÖÖ´óÓïÑÔÄ£ĞÍ
+pip3 install python-dotenv #¼ÓÔØ¹¤¾ß
+pip3?install?dashscope #Áé»ıÄ£ĞÍ·şÎñ
+pip3 install dashvector #Áé»ıÏòÁ¿¼ìË÷·şÎñ
 ```
 
-### <font color=#70AD47>OpenAI</font>
+### OpenAI
 
 ```bash
-pip3 install langchain #å®‰è£…langchainç¯å¢ƒ
-pip3 install langchain-community #å®‰è£…ç¬¬ä¸‰æ–¹é›†æˆ,å°±æ˜¯å„ç§å¤§è¯­è¨€æ¨¡å‹
+pip3 install langchain #°²×°langchain»·¾³
+pip3 install langchain-community #°²×°µÚÈı·½¼¯³É,¾ÍÊÇ¸÷ÖÖ´óÓïÑÔÄ£ĞÍ
 pip3 install langchain-openai
 ```
 
 > [!TIP]
 >
-> ä½¿ç”¨OpenAIçš„APIkeyéœ€è¦å……å€¼ï¼Œå¯ä»¥å°è¯•ä½¿ç”¨æ–°è´¦å·ï¼Œä½†æ˜¯è¦éªŒè¯å›½å¤–çš„æ‰‹æœºå·ï¼Œæ¯”è¾ƒéº»çƒ¦ï¼Œæœ¬æŒ‡å—ä¸ä½¿ç”¨OpenAI API key
+> Ê¹ÓÃOpenAIµÄAPIkeyĞèÒª³äÖµ£¬¿ÉÒÔ³¢ÊÔÊ¹ÓÃĞÂÕËºÅ£¬µ«ÊÇÒªÑéÖ¤¹úÍâµÄÊÖ»úºÅ£¬±È½ÏÂé·³£¬±¾Ö¸ÄÏ²»Ê¹ÓÃOpenAI API key
 
-### <font color=#70AD47>çµç§¯æœåŠ¡æ¨¡å‹</font>
+### Áé»ı·şÎñÄ£ĞÍ
 
-1. åˆ›å»ºè´¦å·å¹¶ç”³è¯·dashscope api key
+1. ´´½¨ÕËºÅ²¢ÉêÇëdashscope api key
 
-   [DashScope æ¨¡å‹æœåŠ¡çµç§¯/API-KEYç®¡ç†](https://dashscope.console.aliyun.com/apiKey)
+   [DashScope Ä£ĞÍ·şÎñÁé»ı/API-KEY¹ÜÀí](https://dashscope.console.aliyun.com/apiKey)
 
-2. é…ç½®ç¯å¢ƒå˜é‡
+2. ÅäÖÃ»·¾³±äÁ¿
 
-   "DASHSCOPE_API_KEY" = "sk-95exxxx"
+   ÔÚÏîÄ¿¸ùÄ¿Â¼Éú³É.envÎÄ¼ş£¬ÆäÖĞÌîĞ´API Key£¬¸ñÊ½Îª
 
-3. ä½¿ç”¨å¯†é’¥
+   ```html
+   <XXX_API_KEY>=<sk-xxxxxxxxx>
+   Èç£º
+   DASHSCOPE_API_KEY=sk-xxxxxxxxxxxxx
+   ```
+
+3. Ê¹ÓÃÃÜÔ¿
 
    ```python
    import os
-   
-   from dotenv import find_dotenv, load_dotenv
-   
-   load_dotenv(find_dotenv())
-   DASHSCOPE_API_KEY = os.environ["DASHSCOPE_API_KEY"]
+   from dotenv import load_dotenv
+   # Ö»ÒªÔÚ.envÖĞÅäÖÃ¹ı£¬Ö»ĞèÄ£¿é¼¶±ğ¼ÓÔØ load_dotenv()£¬Ôò¿ÉÔÚ´´½¨´óÄ£ĞÍ¶ÔÏóÊ±×Ô¶¯Ê¶±ğ
+   load_dotenv()
+   # ´ËÊ±ÒÔÊ¶±ğµ½DASHSCOPE_API_KEY
+   model = Tongyi(temperature=1)
    ```
 
-4. å‘é‡æ£€ç´¢æœåŠ¡
+4. ÏòÁ¿¼ìË÷·şÎñ
 
-   [å‘é‡æ£€ç´¢æœåŠ¡DashVector (aliyun.com)](https://dashvector.console.aliyun.com/overview)
+   [ÏòÁ¿¼ìË÷·şÎñDashVector (aliyun.com)](https://dashvector.console.aliyun.com/overview)
 
-   1. åˆ›å»ºAPI-KEY
+   1. ´´½¨API-KEY
 
-      [DashVector-API-KEYåˆ›å»º](https://dashvector.console.aliyun.com/api-key)
+      [DashVector-API-KEY´´½¨](https://dashvector.console.aliyun.com/api-key)
 
-      ![DashVector_API_KEY](img\DashVector_API_KEY.PNG)
-
+      <center>
+          <img style="border-radius: 0.3125em;
+          box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+          src="img\DashVector_API_KEY.png">
+          <br>
+          <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+          display: inline-block;
+          color: #999;
+          padding: 2px;">´´½¨DASHSCOPE_API_KEY</div>
+      </center>
+   
       > [!NOTE]
       >
-      > DashVector-API-KEYå’ŒDASHSCOPE_API_KEYä¸åŒ
-
-   2. åˆ›å»ºClusterï¼ˆæœ‰å…è´¹ç‰ˆï¼‰
-
-      [Clusteråˆ›å»º](https://common-buy.aliyun.com/?commodityCode=dashvector_vector_public_cn&regionId=cn-beijing&request={"cluster_type":"storage_type","replica":"1"})
-
-      ![åˆ›å»ºCluster](img\åˆ›å»ºCluster.PNG)
-
-   3. åˆ›å»ºCollection
-
-      [CollectionList](https://dashvector.console.aliyun.com/cn-beijing/cluster/zydCluster/collectionList)
-
-      ![åˆ›å»ºCollection](img\åˆ›å»ºCollection.PNG)
-
-   4. æ–°å¢å‘é‡æ•°æ®
-
+      > DashVector-API-KEYºÍDASHSCOPE_API_KEY²»Í¬
+   
+   2. ´´½¨Cluster£¨ÓĞÃâ·Ñ°æ£©
+   
+      [Cluster´´½¨](https://common-buy.aliyun.com/?commodityCode=dashvector_vector_public_cn&regionId=cn-beijing&request={"cluster_type":"storage_type","replica":"1"})
+   
+      <center>
+          <img style="border-radius: 0.3125em;
+          box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+          src="img\´´½¨Cluster.png">
+          <br>
+          <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+          display: inline-block;
+          color: #999;
+          padding: 2px;">´´½¨cluster</div>
+      </center>
+   
+   3. ´´½¨Collection
+   
+      <center>
+          <img style="border-radius: 0.3125em;
+          box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+          src="img\´´½¨Collection.png">
+          <br>
+          <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+          display: inline-block;
+          color: #999;
+          padding: 2px;">´´½¨collection</div>
+      </center>
+      
+   4. ĞÂÔöÏòÁ¿Êı¾İ
+   
       ```python
       import json
       
-      # å‡†å¤‡æ•°æ®
-      # è¾“å…¥ï¼špathï¼Œæ–‡ä»¶è·¯å¾„ï¼Œsizeï¼Œæ¯ä¸ªbatchçš„å¤§å°
-      # è¾“å‡ºï¼šæ¯æ¬¡è¿­ä»£è¿”å›ä¸€ä¸ªåŒ…å«æŒ‡å®šå¤§å°æ–‡æ¡£çš„åˆ—è¡¨
+      # ×¼±¸Êı¾İ
+      # ÊäÈë£ºpath£¬ÎÄ¼şÂ·¾¶£¬size£¬Ã¿¸öbatchµÄ´óĞ¡
+      # Êä³ö£ºÃ¿´Îµü´ú·µ»ØÒ»¸ö°üº¬Ö¸¶¨´óĞ¡ÎÄµµµÄÁĞ±í
       def prepare_data(path, size):
           with open(path, 'r', encoding='utf-8') as f:
               batch_docs = []
@@ -561,9 +600,9 @@ pip3 install langchain-openai
       
       from dashscope import TextEmbedding
       
-      # embeddingè¿‡ç¨‹
-      # è¾“å…¥ï¼šæ–‡æœ¬å­—ç¬¦ä¸²æˆ–å­—ç¬¦ä¸²åˆ—è¡¨
-      # è¾“å‡ºï¼šå•ä¸ªæ–‡æœ¬æˆ–æ–‡æœ¬åˆ—è¡¨å¯¹åº”çš„å‘é‡
+      # embedding¹ı³Ì
+      # ÊäÈë£ºÎÄ±¾×Ö·û´®»ò×Ö·û´®ÁĞ±í
+      # Êä³ö£ºµ¥¸öÎÄ±¾»òÎÄ±¾ÁĞ±í¶ÔÓ¦µÄÏòÁ¿
       def generate_embeddings(text):
           rsp = TextEmbedding.call(model=TextEmbedding.Models.text_embedding_v1, input=text)
       
@@ -572,34 +611,34 @@ pip3 install langchain-openai
       
       from dashvector import Client, Doc
       
-      # åˆå§‹åŒ– DashVector client
-      # DashVector API KEYå’ŒClusterçš„endpoint
+      # ³õÊ¼»¯ DashVector client
+      # DashVector API KEYºÍClusterµÄendpoint
       client = Client(
           api_key='sk-QC9.....',
           endpoint='vrs-cn-fou.....'
       )
       
-      # æŒ‡å®šé›†åˆåç§°å’Œå‘é‡ç»´åº¦
+      # Ö¸¶¨¼¯ºÏÃû³ÆºÍÏòÁ¿Î¬¶È
       existing_collections = client.list()
       
-      # åˆ¤æ–­ä¸Šé¢æ“ä½œæ˜¯å¦å·²ç»åˆ›å»ºå¥½Collection
-      if 'zydCollection' not in existing_collections:
-          print("zydCollection does not exist, creating it...")
-          rsp = client.create('zydCollection', 1536)
+      # ÅĞ¶ÏÉÏÃæ²Ù×÷ÊÇ·ñÒÑ¾­´´½¨ºÃCollection
+      if 'your_collection' not in existing_collections:
+          print("your_collection does not exist, creating it...")
+          rsp = client.create('your_collection', 1536)
           assert rsp
       else:
-          print("zydCollection already exists.")
+          print("your_collection already exists.")
       
-      # è·å–é›†åˆ
-      collection = client.get('zydCollection')
+      # »ñÈ¡¼¯ºÏ
+      collection = client.get('your_collection')
       assert collection
       
       batch_size = 10
-      for docs in list(prepare_data('QBQTC-main/dataset/train.json', batch_size)):
-          # æ‰¹é‡ embedding
+      for docs in list(prepare_data('your_data', batch_size)):
+          # ÅúÁ¿ embedding
           embeddings = generate_embeddings([doc['title'] for doc in docs])
       
-          # æ‰¹é‡å†™å…¥æ•°æ®
+          # ÅúÁ¿Ğ´ÈëÊı¾İ
           rsp = collection.insert(
               [
                   Doc(id=str(doc['id']), vector=embedding, fields={"title": doc['title']})
@@ -609,15 +648,15 @@ pip3 install langchain-openai
           print("Response from insert:", rsp)
           assert rsp
       
-      # åŸºäºå‘é‡æ£€ç´¢çš„è¯­ä¹‰æœç´¢
-      rsp = collection.query(generate_embeddings('åº”å±Šç”Ÿ æ‹›è˜'), output_fields=['title'])
+      # »ùÓÚÏòÁ¿¼ìË÷µÄÓïÒåËÑË÷
+      rsp = collection.query(generate_embeddings('Ó¦½ìÉú ÕĞÆ¸'), output_fields=['title'])
       print("Response from query:", rsp)
       
       for doc in rsp.output:
           print(f"id: {doc.id}, title: {doc.fields['title']}, score: {doc.score}")
       ```
    
-   5. è¿›è¡Œå‘é‡æŸ¥è¯¢
+   5. ½øĞĞÏòÁ¿²éÑ¯
    
       ```python
       import os
@@ -627,33 +666,33 @@ pip3 install langchain-openai
       
       from dashvector import Client, Doc
       
-      # è¿™ä¸¤ä¸ªå’Œä¸Šé¢ä¸€æ ·
+      # ÕâÁ½¸öºÍÉÏÃæÒ»Ñù
       def prepare_data(path, batch_size=25)
       def generate_embeddings(news)
       
       
       if __name__ == '__main__':
-          dashscope.api_key = '{sk-95ec6c38888044ce8a5addd4224edc83}'
+          dashscope.api_key = '{sk-95exxx}'
       
-          # åˆå§‹åŒ– dashvector client
+          # ³õÊ¼»¯ dashvector client
           client = Client(
               api_key='sk-QC9.....',
           	endpoint='vrs-cn-fou.....'
           )
       
-          # åˆ›å»ºé›†åˆï¼šæŒ‡å®šé›†åˆåç§°å’Œå‘é‡ç»´åº¦, text_embedding_v1 æ¨¡å‹äº§ç”Ÿçš„å‘é‡ç»Ÿä¸€ä¸º 1536 ç»´
-          rsp = client.create('zydCollection_2', 1536)
+          # ´´½¨¼¯ºÏ£ºÖ¸¶¨¼¯ºÏÃû³ÆºÍÏòÁ¿Î¬¶È, text_embedding_v1 Ä£ĞÍ²úÉúµÄÏòÁ¿Í³Ò»Îª 1536 Î¬
+          rsp = client.create('your_collection', 1536)
           assert rsp
       
-          # åŠ è½½è¯­æ–™
+          # ¼ÓÔØÓïÁÏ
           id = 0
-          collection = client.get('zydCollection_2')
-          for news in list(prepare_data('dashscope_vector_etc/CEC-Corpus-master/raw corpus/allSourceText')):
+          collection = client.get('your_collection')
+          for news in list(prepare_data('your_data')):
               ids = [id + i for i, _ in enumerate(news)]
               id += len(news)
       
               vectors = generate_embeddings(news)
-              # å†™å…¥ dashvector æ„å»ºç´¢å¼•
+              # Ğ´Èë dashvector ¹¹½¨Ë÷Òı
               rsp = collection.upsert(
                   [
                       Doc(id=str(id), vector=vector, fields={"raw": doc})
@@ -665,14 +704,20 @@ pip3 install langchain-openai
    
       > [!NOTE]
       >
-      > å…è´¹çš„Clusterå‘é‡å­˜å‚¨ä¸Šé™æ˜¯10wï¼Œå¤šäºè¿™ä¸ªæ•°å­—å­˜å‚¨æ—¶ä¼šæŠ¥é”™ã€‚ä¸Šè¿°ä»£ç ä»…ä½¿ç”¨train.jsonä¸­ä¸€åŠçš„æ•°æ®é‡ï¼Œä¸èŒƒä¾‹ç›¸æ¯”åœ¨å‡†ç¡®æ€§ä¸Šæ˜¾è‘—é™ä½ã€‚
+      > Ãâ·ÑµÄClusterÏòÁ¿´æ´¢ÉÏÏŞÊÇ10w£¬¶àÓÚÕâ¸öÊı×Ö´æ´¢Ê±»á±¨´í¡£ÉÏÊö´úÂë½öÊ¹ÓÃtrain.jsonÖĞÒ»°ëµÄÊı¾İÁ¿£¬Óë·¶ÀıÏà±ÈÔÚ×¼È·ĞÔÉÏÏÔÖø½µµÍ¡£
       >
-      > [è¿”å›çŠ¶æ€ç è¯´æ˜](https://help.aliyun.com/document_detail/2510266.html?spm=5176.28371440.help.dexternal.682666d7FmUoHB)
+      > [·µ»Ø×´Ì¬ÂëËµÃ÷](https://help.aliyun.com/document_detail/2510266.html?spm=5176.28371440.help.dexternal.682666d7FmUoHB)
       
-
-â€‹	
-
-
+      <center>
+          <img style="border-radius: 0.3125em;
+          box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+          src="img\ÔÚcollectionÖĞ²åÈëÏòÁ¿µÄ·µ»ØÖµ.png">
+          <br>
+          <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+          display: inline-block;
+          color: #999;
+          padding: 2px;">ÔÚcollectionÖĞ²åÈëÏòÁ¿µÄ·µ»ØÖµ</div>
+      </center>
 
 
 
