@@ -7,7 +7,7 @@ from logger import Logger
 
 # 初始化 Logger 实例
 log = Logger(__file__)
-load_dotenv(dotenv_path="../.env", verbose=True)
+load_dotenv(dotenv_path="D:\zyd\Projects\Python\langchain\.env", verbose=True)
 
 # 从环境变量中加载 Dashscope API 密钥
 dashscope_api_key = os.getenv("DASHSCOPE_API_KEY")
