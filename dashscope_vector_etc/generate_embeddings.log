@@ -1,6 +1,0 @@
-2024-07-29 13:07:32,090 - INFO - __main__ - Client initialized: {"code": 0, "message": "", "request_id": "16792611-8035-4ef5-a496-dcd4fbc7f8ce", "version": "2.4.5.11-dirty\n"}
-2024-07-29 13:07:32,098 - INFO - __main__ - Checking collections...
-2024-07-29 13:07:32,220 - INFO - __main__ - zydCollection does not exist, creating it...
-2024-07-29 13:07:42,400 - INFO - __main__ - Response from create: {"code": 0, "message": "", "requests_id": "4468e28d-b80d-4090-b025-51c0f58baf2d"}
-
-
