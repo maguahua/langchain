@@ -55,8 +55,8 @@ from dashvector import Client, Doc
 # 初始化 DashVector client
 # DashVector API KEY和Cluster的endpoint
 client = Client(
-    api_key='sk-QC92s09WrepVav5GjI20PyeB6vJ2CE44D34634A6211EFA11DB2CF21235769',
-    endpoint='vrs-cn-fou3ucvg500011.dashvector.cn-beijing.aliyuncs.com'
+    api_key='your_api_key',
+    endpoint='your_endpoint'
 )
 
 logger.info("Client initialized: %s", client)
@@ -65,24 +65,24 @@ logger.info("Client initialized: %s", client)
 logger.info("Checking collections...")
 existing_collections = client.list()
 
-if 'zydCollection' not in existing_collections:
-    logger.info("zydCollection does not exist, creating it...")
-    rsp = client.create('zydCollection', 1536)
+if 'your_collection' not in existing_collections:
+    logger.info("your_collection does not exist, creating it...")
+    rsp = client.create('your_collection', 1536)
     logger.info("Response from create: %s", rsp)
     if rsp.code != 0:
         logger.error("Error creating collection: %s", rsp)
         raise Exception(f"Error creating collection: {rsp}")
 else:
-    logger.info("zydCollection already exists.")
+    logger.info("your_collection already exists.")
 
 # 获取集合
-collection = client.get('zydCollection')
+collection = client.get('your_collection')
 if not collection:
-    logger.error("Failed to get collection: zydCollection")
-    raise Exception("Failed to get collection: zydCollection")
+    logger.error("Failed to get collection: your_collection")
+    raise Exception("Failed to get collection: your_collection")
 
 batch_size = 10
-for docs in list(prepare_data('QBQTC-main/dataset/new_train.json', batch_size)):
+for docs in list(prepare_data('your/path/to/data.json', batch_size)):
     # 批量 embedding
     embeddings = generate_embeddings([doc['title'] for doc in docs])
 
